@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Gas4Oil
+
+  Created by Aitor Sola on 9/3/22.
+  
+*/
+
+"common.loading" = "Cargando";
+"common.gettingLocation" = "Obteniendo ubicación";
+
+"station.schedule" = "Horario";
+
+"landingView.title.discover" = "Encuentra estaciones de servicio y obtén su precio actualizado";
+"landingView.button.requestLocationPermission" = "Solicitar permiso de localización";
+"landingView.button.locationDenied" = "Permiso de localizacion denegada";
+
+"fuel.95" = "Gasolina 95";
+"fuel.98" = "Gasolina 98";
+"fuel.diesel" = "Diesel";
+
+"listView.button.requestLocation" = "Estaciones cercanas";
+
+"listView.sortType.near95.button" = "Cerca 95";
+"listView.sortType.down95.button" = "Precio más bajo 95";
+"listView.sortType.up95.button" = "Precio más alto 95";
+
+"listView.sortType.near98.button" = "Cerca 98";
+"listView.sortType.down98.button" = "Precio más bajo 98";
+"listView.sortType.up98.button" = "Precio más alto 98";
+
+"listView.sortType.nearDiesel.button" = "Cerca diésel";
+"listView.sortType.downDiesel.button" = "Precio más bajo diésel";
+"listView.sortType.upDiesel.button" = "Precio más alto diésel";
+
+"mainTab.favTabTitle" = "Favoritos";
+"mainTab.stationsTabTitle" = "Estaciones";

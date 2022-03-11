@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Gas4Oil
+
+  Created by Aitor Sola on 9/3/22.
+  
+*/
+
+"common.loading" = "Loading";
+"common.gettingLocation" = "Getting location";
+
+"station.schedule" = "Schedule";
+
+"landingView.title.discover" = "Discover fuel stations and get its current price";
+"landingView.button.requestLocationPermission" = "Request location permission";
+"landingView.button.locationDenied" = "Location denied";
+
+"fuel.95" = "Petrol 95";
+"fuel.98" = "Petrol 98";
+"fuel.diesel" = "Diesel";
+
+"listView.button.requestLocation" = "Get near stations";
+
+"listView.sortType.near95.button" = "Near 95";
+"listView.sortType.down95.button" = "Price down 95";
+"listView.sortType.up95.button" = "Price up 95";
+
+"listView.sortType.near98.button" = "Near 98";
+"listView.sortType.down98.button" = "Price down 98";
+"listView.sortType.up98.button" = "Price up 98";
+
+"listView.sortType.nearDiesel.button" = "Near diesel";
+"listView.sortType.downDiesel.button" = "Price down diesel";
+"listView.sortType.upDiesel.button" = "Price up diesel";
+
+"mainTab.favTabTitle" = "Favorites";
+"mainTab.stationsTabTitle" = "Stations";
