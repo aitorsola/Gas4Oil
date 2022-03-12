@@ -20,12 +20,18 @@ enum SortType {
   case priceDieselUp
 }
 
+enum FuelBrandSortType: Hashable {
+  case all
+  case brand(String)
+}
+
 struct StationsListView: View {
 
   @StateObject var viewModel: StationsListViewViewModel = StationsListViewViewModel()
 
   @State var sortType: SortType = .near95
   @State var searchText: String = ""
+  @State var sortBrand: FuelBrandSortType = .all
   @State private var showMapView = false
 
   @FocusState private var focused: Bool
@@ -36,43 +42,53 @@ struct StationsListView: View {
     } else {
       NavigationView {
         VStack(spacing: 15) {
-          Picker("", selection: $sortType) {
-
-            Group {
-              Label("listView.sortType.near95.button".translated, systemImage: "location.fill")
-                .tag(SortType.near95)
-              Label("listView.sortType.down95.button".translated, systemImage: "arrow.down")
-                .tag(SortType.price95Down)
-              Label("listView.sortType.up95.button".translated, systemImage: "arrow.up")
-                .tag(SortType.price95Up)
+          HStack {
+            Spacer()
+            Picker("brand", selection: $sortBrand) {
+              Label("All", systemImage: "heart").tag(FuelBrandSortType.all)
+              Divider()
+              ForEach(viewModel.allBrands, id: \.self) { brand in
+                Label(brand, systemImage: "heart").tag(FuelBrandSortType.brand(brand))
+              }
+            }.onChange(of: sortBrand) { newValue in
+              viewModel.showByBrand(newValue)
             }
-
-            Divider()
-
-            Group {
-              Label("listView.sortType.nearDiesel.button".translated, systemImage: "location.fill")
-                .tag(SortType.near98)
-              Label("listView.sortType.downDiesel.button".translated, systemImage: "arrow.down")
-                .tag(SortType.priceDieselDown)
-              Label("listView.sortType.upDiesel.button".translated, systemImage: "arrow.up")
-                .tag(SortType.priceDieselUp)
+            Spacer()
+            Picker("", selection: $sortType) {
+              Group {
+                Label("listView.sortType.near95.button".translated, systemImage: "location.fill")
+                  .tag(SortType.near95)
+                Label("listView.sortType.down95.button".translated, systemImage: "arrow.down")
+                  .tag(SortType.price95Down)
+                Label("listView.sortType.up95.button".translated, systemImage: "arrow.up")
+                  .tag(SortType.price95Up)
+              }
+              Divider()
+              Group {
+                Label("listView.sortType.nearDiesel.button".translated, systemImage: "location.fill")
+                  .tag(SortType.near98)
+                Label("listView.sortType.downDiesel.button".translated, systemImage: "arrow.down")
+                  .tag(SortType.priceDieselDown)
+                Label("listView.sortType.upDiesel.button".translated, systemImage: "arrow.up")
+                  .tag(SortType.priceDieselUp)
+              }
+              Divider()
+              Group {
+                Label("listView.sortType.near98.button".translated, systemImage: "location.fill")
+                  .tag(SortType.nearDiesel)
+                Label("listView.sortType.down98.button".translated, systemImage: "arrow.down")
+                  .tag(SortType.price98Down)
+                Label("listView.sortType.up98.button".translated, systemImage: "arrow.up")
+                  .tag(SortType.price98Up)
+              }
             }
-
-            Divider()
-
-            Group {
-              Label("listView.sortType.near98.button".translated, systemImage: "location.fill")
-                .tag(SortType.nearDiesel)
-              Label("listView.sortType.down98.button".translated, systemImage: "arrow.down")
-                .tag(SortType.price98Down)
-              Label("listView.sortType.up98.button".translated, systemImage: "arrow.up")
-                .tag(SortType.price98Up)
+            .pickerStyle(.menu)
+            .onChange(of: sortType) { value in
+              viewModel.showFuelSorted(value)
             }
+            Spacer()
           }
-          .pickerStyle(.menu)
-          .onChange(of: sortType) { value in
-            viewModel.showFuelSorted(value)
-          }
+
           List(viewModel.stations) { station in
             ZStack(alignment: .leading) {
               NavigationLink(destination: {
@@ -84,6 +100,8 @@ struct StationsListView: View {
             }
           }.listStyle(.plain)
           Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location")) {
+            self.sortBrand = .all
+            self.sortType = .near95
             viewModel.requestLocation()
           }.padding(.bottom, 10)
         }
