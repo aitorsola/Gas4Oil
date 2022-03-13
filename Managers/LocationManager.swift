@@ -40,7 +40,7 @@ class Location: NSObject, LocationManager {
 
   override init() {
     super.init()
-    manager.desiredAccuracy = 500
+    manager.desiredAccuracy = kCLLocationAccuracyBest
     manager.delegate = self
   }
 
@@ -81,7 +81,7 @@ extension Location: CLLocationManagerDelegate {
     delegate?.didGet?(auth: manager.authorizationStatus)
     switch manager.authorizationStatus {
     case .authorizedWhenInUse, .authorizedAlways:
-      manager.requestLocation()
+      manager.startUpdatingLocation()
     default:
       break
     }
@@ -93,6 +93,7 @@ extension Location: CLLocationManagerDelegate {
     }
     currentCoordinates = location
     getCityNameFor(location) { placemark in
+      self.manager.stopUpdatingLocation()
       self.currentCity = placemark?.locality
       self.delegate?.didGet?(city: placemark?.locality)
     }

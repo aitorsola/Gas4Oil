@@ -33,6 +33,8 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
+  private var kMaxLenght = 100
+
   let defaults: UserDefaults = UserDefaults.standard
 
   var allStations: [Station] = []
@@ -95,10 +97,8 @@ class StationsListViewViewModel: ObservableObject {
       switch result {
       case .success(let stations):
         self.allStations = stations
-        self.stations = self.allStations
-          .filter {$0.municipio == city?.lowercased() || $0.provincia == city?.lowercased() }
-          .filter {!$0.gasolina95E5.isEmpty
-          }
+        self.stations = Array(self.allStations
+          .filter { !$0.gasolina95E5.isEmpty }
           .sorted(by: { station1, station2 in
             switch self.currentSortType {
             case .near98, .near95, .nearDiesel:
@@ -117,7 +117,7 @@ class StationsListViewViewModel: ObservableObject {
               return station1.gasoleoA > station2.gasoleoA
             }
           })
-          .filter({ station in
+          .filter { station in
             switch self.currentSortType {
             case .near98, .price98Up, .price98Down:
               return !station.gasolina98E5.isEmpty
@@ -126,15 +126,16 @@ class StationsListViewViewModel: ObservableObject {
             case .nearDiesel, .priceDieselUp, .priceDieselDown:
               return !station.gasoleoA.isEmpty
             }
-          })
-          .filter({ station in
+          }
+          .filter { station in
             switch self.currentSortBrand {
             case .all:
               return true
             case .brand(let brand):
               return station.rotulo.contains(brand.uppercased())
             }
-          })
+          }
+          .prefix(self.kMaxLenght))
         self.isLoading = false
       case .failure(let error):
         print(error.localizedDescription)
@@ -157,7 +158,7 @@ extension StationsListViewViewModel {
     case .all:
       showFuelSorted(currentSortType)
     case .brand(let brand):
-      self.stations = self.allStations
+      self.stations = Array(self.allStations
         .filter({$0.rotulo.contains(brand.uppercased())})
         .filter {$0.municipio == currentCity?.lowercased() || $0.provincia == currentCity?.lowercased() }
         .sorted(by: { station1, station2 in
@@ -178,7 +179,7 @@ extension StationsListViewViewModel {
             return station1.gasoleoA > station2.gasoleoA
           }
         })
-        .filter({ station in
+        .filter { station in
           switch self.currentSortType {
           case .near98, .price98Up, .price98Down:
             return !station.gasolina98E5.isEmpty
@@ -187,13 +188,14 @@ extension StationsListViewViewModel {
           case .nearDiesel, .priceDieselUp, .priceDieselDown:
             return !station.gasoleoA.isEmpty
           }
-        })
+        }
+        .prefix(kMaxLenght))
     }
   }
 
   func showFuelByCity(_ city: String) {
     currentCity = city.lowercased()
-    self.stations = self.allStations
+    self.stations = Array(self.allStations
       .filter {$0.municipio == city.lowercased() || $0.provincia == city.lowercased() }
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
@@ -213,20 +215,22 @@ extension StationsListViewViewModel {
           return station1.gasoleoA > station2.gasoleoA
         }
       })
-      .filter({ station in
+      .filter { station in
         switch self.currentSortBrand {
         case .all:
           return true
         case .brand(let brand):
           return station.rotulo.contains(brand.uppercased())
         }
-      })
+      }
+      .prefix(kMaxLenght))
+
     navigationTitle = city.capitalized
   }
 
   func showFuelSorted(_ by: SortType) {
     self.currentSortType = by
-    self.stations = self.allStations
+    self.stations = Array(self.allStations
       .filter {$0.municipio == currentCity?.lowercased() || $0.provincia == currentCity?.lowercased() }
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
@@ -256,14 +260,15 @@ extension StationsListViewViewModel {
           return !station.gasoleoA.isEmpty
         }
       })
-      .filter({ station in
+      .filter { station in
         switch self.currentSortBrand {
         case .all:
           return true
         case .brand(let brand):
           return station.rotulo.contains(brand.uppercased())
         }
-      })
+      }
+      .prefix(kMaxLenght))
   }
 
   private func sortStationsByProximity(station1: Station, station2: Station, sortType: SortType) -> Bool {

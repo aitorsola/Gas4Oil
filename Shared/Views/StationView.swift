@@ -73,8 +73,7 @@ struct StationView: View {
           .frame(width: 30, height: 30, alignment: .center)
           .cornerRadius(5)
         Text(brand.uppercased())
-      }
-        .font(.customSize(20, weight: .bold))
+      }.font(.customSize(20, weight: .bold))
       Spacer()
       Text(address.capitalized)
       Spacer()

@@ -26,7 +26,7 @@ struct MainTabView: View {
         .tag(TabSelectedType.stations.rawValue)
         .tabItem {
           VStack {
-            Image(systemName: "fuelpump.fill").renderingMode(.original)
+            Image(systemName: "fuelpump.fill")
             Text("mainTab.stationsTabTitle".translated)
           }
         }
@@ -35,7 +35,7 @@ struct MainTabView: View {
         .tag(TabSelectedType.favorite.rawValue)
         .tabItem {
           VStack {
-            Image(systemName: tabSelected == TabSelectedType.stations.rawValue ? "star" : "star.fill").renderingMode(.original)
+            Image(systemName: "star.fill")
             Text("mainTab.favTabTitle".translated)
           }
         }
@@ -44,7 +44,6 @@ struct MainTabView: View {
         })
     }
     .font(.headline)
-    .accentColor(.white)
   }
 }
 

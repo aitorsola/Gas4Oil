@@ -43,11 +43,11 @@ struct LandingView: View {
       }
       #if os(iOS)
       .fullScreenCover(isPresented: $viewModel.shouldShowList) {
-        StationsListView()
+        MainTabView()
       }
       #else
       .sheet(isPresented: $viewModel.shouldShowList) {
-        StationsListView()
+        MainTabView()
       }
       #endif
     }
