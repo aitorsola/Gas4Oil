@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandingView: View {
 
-  @StateObject var viewModel: LandingViewModel = LandingViewModel()
+  @StateObject private var viewModel: LandingViewModel = LandingViewModel()
 
   var body: some View {
     if viewModel.isGettingLocation {

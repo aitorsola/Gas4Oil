@@ -7,6 +7,25 @@
 
 import CoreLocation
 
+enum CommonStationBrand: String {
+  case alcampo
+  case carrefour
+  case bonarea
+  case campsa
+  case petroprix
+  case eroski
+  case repsol
+  case cepsa
+  case ballenoil
+  case galp
+  case bp
+  case shell
+  case avia
+  case petronor
+  case q8
+  case unknown
+}
+
 class StationsListViewViewModel: ObservableObject {
 
   // MARK: - Properties
@@ -22,20 +41,22 @@ class StationsListViewViewModel: ObservableObject {
   var currentSortBrand: FuelBrandSortType = .all
 
   @Published var stations: [Station] = []
-  @Published var allBrands: [String] = ["Alcampo",
-                                        "Carrefour",
-                                        "Bonarea",
-                                        "Campsa",
-                                        "Petroprix",
-                                        "Eroski",
-                                        "Repsol",
-                                        "Cepsa",
-                                        "Ballenoil",
-                                        "Galp",
-                                        "BP",
-                                        "Shell",
-                                        "Avia",
-                                        "Petronor"].sorted(by: {$0 < $1})
+  @Published var allBrands: [CommonStationBrand] = [
+    .alcampo,
+    .avia,
+    .bp,
+    .ballenoil,
+    .q8,
+    .bonarea,
+    .campsa,
+    .carrefour,
+    .cepsa,
+    .eroski,
+    .galp,
+    .petronor,
+    .repsol,
+    .petroprix,
+    .shell].sorted(by: {$0.rawValue < $1.rawValue})
   @Published var isLoading: Bool = true
   @Published var navigationTitle: String?
 

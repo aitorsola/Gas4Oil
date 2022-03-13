@@ -66,7 +66,14 @@ struct StationView: View {
       getDistanceLabel()
         .padding(.top, 15)
         .padding(.bottom, 15)
-      Text(brand.capitalized)
+      HStack(spacing: 10) {
+        getStationImage(brand: brand)
+          .resizable()
+          .scaledToFit()
+          .frame(width: 30, height: 30, alignment: .center)
+          .cornerRadius(5)
+        Text(brand.uppercased())
+      }
         .font(.customSize(20, weight: .bold))
       Spacer()
       Text(address.capitalized)
@@ -119,6 +126,49 @@ extension StationView {
         EmptyView()
       }
     }
+  }
+
+  private func getStationImage(brand: String) -> Image {
+    let rawBrand = brand
+      .lowercased()
+      .components(separatedBy: " ").first ?? ""
+    let stationBrand = CommonStationBrand(rawValue: rawBrand) ?? .unknown
+    let imageName: String
+    switch stationBrand {
+    case .q8:
+      imageName = "logo_q8"
+    case .alcampo:
+      imageName = "logo_alcampo"
+    case .carrefour:
+      imageName = "logo_carrefour"
+    case .bonarea:
+      imageName = "logo_bonarea"
+    case .campsa:
+      imageName = "logo_campsa"
+    case .petroprix:
+      imageName = "logo_petroprix"
+    case .eroski:
+      imageName = "logo_eroski"
+    case .repsol:
+      imageName = "logo_repsol"
+    case .cepsa:
+      imageName = "logo_cepsa"
+    case .ballenoil:
+      imageName = "logo_ballenoil"
+    case .galp:
+      imageName = "logo_galp"
+    case .bp:
+      imageName = "logo_bp"
+    case .shell:
+      imageName = "logo_shell"
+    case .avia:
+      imageName = "logo_avia"
+    case .petronor:
+      imageName = "logo_petronor"
+    case .unknown:
+      return Image(systemName: "nosign")
+    }
+    return Image(imageName)
   }
 }
 

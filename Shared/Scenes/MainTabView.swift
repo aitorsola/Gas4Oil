@@ -31,7 +31,7 @@ struct MainTabView: View {
           }
         }
       
-      FavoriteListView(viewModel.favoriteViewViewModel)
+      FavoriteListView(viewModel: viewModel.favoriteViewViewModel)
         .tag(TabSelectedType.favorite.rawValue)
         .tabItem {
           VStack {

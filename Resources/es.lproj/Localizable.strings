@@ -21,6 +21,7 @@
 
 "listView.button.requestLocation" = "Estaciones cercanas";
 
+"listView.sortType.all.button" = "Todo";
 "listView.sortType.near95.button" = "Cerca 95";
 "listView.sortType.down95.button" = "Precio más bajo 95";
 "listView.sortType.up95.button" = "Precio más alto 95";

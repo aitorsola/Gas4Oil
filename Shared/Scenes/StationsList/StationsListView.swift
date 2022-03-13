@@ -29,10 +29,9 @@ struct StationsListView: View {
 
   @StateObject var viewModel: StationsListViewViewModel = StationsListViewViewModel()
 
-  @State var sortType: SortType = .near95
-  @State var searchText: String = ""
-  @State var sortBrand: FuelBrandSortType = .all
-  @State private var showMapView = false
+  @State private var sortType: SortType = .near95
+  @State private var searchText: String = ""
+  @State private var sortBrand: FuelBrandSortType = .all
 
   @FocusState private var focused: Bool
 
@@ -45,10 +44,11 @@ struct StationsListView: View {
           HStack {
             Spacer()
             Picker("brand", selection: $sortBrand) {
-              Label("All", systemImage: "heart").tag(FuelBrandSortType.all)
+              Label("All", systemImage: "fuelpump.fill").tag(FuelBrandSortType.all)
               Divider()
               ForEach(viewModel.allBrands, id: \.self) { brand in
-                Label(brand, systemImage: "heart").tag(FuelBrandSortType.brand(brand))
+                Label(brand.rawValue.uppercased(), systemImage: "")
+                  .tag(FuelBrandSortType.brand(brand.rawValue))
               }
             }.onChange(of: sortBrand) { newValue in
               viewModel.showByBrand(newValue)
@@ -88,16 +88,9 @@ struct StationsListView: View {
             }
             Spacer()
           }
-
+          
           List(viewModel.stations) { station in
-            ZStack(alignment: .leading) {
-              NavigationLink(destination: {
-                MapView(station: .constant(station))
-              }, label: {
-                EmptyView()
-              }).opacity(0)
-              getStationView(station)
-            }
+            createNavigationLink(station)
           }.listStyle(.plain)
           Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location")) {
             self.sortBrand = .all
@@ -127,6 +120,14 @@ struct StationsListView: View {
         viewModel.showFuelByCity(searchText)
       }
     }
+  }
+
+  func createNavigationLink(_ station: Station) -> some View {
+    NavigationLink(destination: {
+      MapView(station: station)
+    }, label: {
+      getStationView(station)
+    })
   }
 }
 

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FavoriteListView: View {
 
-  @ObservedObject var viewModel: FavoriteListViewViewModel
+  @ObservedObject private var viewModel: FavoriteListViewViewModel
 
-  init(_ viewModel: FavoriteListViewViewModel = FavoriteListViewViewModel()) {
+  init(viewModel: FavoriteListViewViewModel) {
     self.viewModel = viewModel
   }
 
@@ -23,7 +23,7 @@ struct FavoriteListView: View {
         List(viewModel.favoriteStations) { station in
           ZStack(alignment: .leading) {
             NavigationLink(destination: {
-              MapView(station: .constant(station))
+              MapView(station: station)
             }, label: {
               EmptyView()
             }).opacity(0)
@@ -54,6 +54,6 @@ extension FavoriteListView {
 
 struct FavoriteListView_Previews: PreviewProvider {
   static var previews: some View {
-    FavoriteListView()
+    FavoriteListView(viewModel: FavoriteListViewViewModel())
   }
 }

@@ -10,15 +10,20 @@ import SwiftUI
 
 struct MapView: View {
 
-  @StateObject var viewModel: MapViewViewModel = MapViewViewModel()
-  @Binding var station: Station
+  @State private var station: Station
+  @State private var coordinates: MKCoordinateRegion
+
+  init(station: Station) {
+    self.station = station
+    self.coordinates = MKCoordinateRegion(center: station.coordinates,
+                                          span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01))
+  }
 
   var body: some View {
-    let coordinateRegion = MKCoordinateRegion(center: station.coordinates, span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    Map(coordinateRegion: .constant(coordinateRegion), annotationItems: [station]) { place in
+    Map(coordinateRegion: $coordinates, showsUserLocation: true, annotationItems: [station]) { place in
       MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.coordinates.latitude,
                                                        longitude: place.coordinates.longitude)) {
-        MapPin(title: place.direccion) {
+        MapPin(station: $station) {
           goToMaps(coordinates: place.coordinates)
         }
         .frame(width: UIScreen.main.bounds.width * 0.9)
@@ -46,6 +51,6 @@ extension MapView {
 struct MapView_Previews: PreviewProvider {
   static var previews: some View {
     let station = Station(id: 0, cp: "", provincia: "", municipio: "", direccion: "", horario: "", coordinates: CLLocationCoordinate2D(latitude: 0, longitude: 0), gasNaturalComprimido: "", gasNaturalLicuado: "", gasoleoA: "", gasoleoB: "", gasoleoPremium: "", gasolina95E10: "", gasolina95E5: "", gasolina95E5Premium: "", gasolina98E10: "", gasolina98E5: "", hidrogeno: "", rotulo: "", isFav: true)
-    MapView(station: .constant(station))
+    MapView(station: station)
   }
 }
