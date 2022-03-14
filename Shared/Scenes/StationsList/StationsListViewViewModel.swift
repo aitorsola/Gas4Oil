@@ -134,8 +134,7 @@ class StationsListViewViewModel: ObservableObject {
             case .brand(let brand):
               return station.rotulo.contains(brand.uppercased())
             }
-          }
-          .prefix(self.kMaxLenght))
+          })
         self.isLoading = false
       case .failure(let error):
         print(error.localizedDescription)
@@ -188,8 +187,7 @@ extension StationsListViewViewModel {
           case .nearDiesel, .priceDieselUp, .priceDieselDown:
             return !station.gasoleoA.isEmpty
           }
-        }
-        .prefix(kMaxLenght))
+        })
     }
   }
 
@@ -222,8 +220,7 @@ extension StationsListViewViewModel {
         case .brand(let brand):
           return station.rotulo.contains(brand.uppercased())
         }
-      }
-      .prefix(kMaxLenght))
+      })
 
     navigationTitle = city.capitalized
   }
@@ -267,8 +264,7 @@ extension StationsListViewViewModel {
         case .brand(let brand):
           return station.rotulo.contains(brand.uppercased())
         }
-      }
-      .prefix(kMaxLenght))
+      })
   }
 
   private func sortStationsByProximity(station1: Station, station2: Station, sortType: SortType) -> Bool {

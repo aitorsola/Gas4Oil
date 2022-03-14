@@ -39,8 +39,9 @@ struct MainTabView: View {
             Text("mainTab.favTabTitle".translated)
           }
         }
-        .onReceive(viewModel.listViewViewModel.$stations, perform: { stations in
-          viewModel.favoriteViewViewModel.getFavoriteStations(allStations: stations)
+        .onReceive(viewModel.listViewViewModel.$stations, perform: { _ in
+          let allStations = viewModel.listViewViewModel.allStations
+          viewModel.favoriteViewViewModel.getFavoriteStations(allStations: allStations)
         })
     }
     .font(.headline)

@@ -36,33 +36,33 @@ struct StationView: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
       HStack {
-        VStack(spacing: 2) {
+        VStack(spacing: 10) {
           Text("95E5")
             .font(.customSize(20, weight: .bold))
             .foregroundColor(.green)
           Text(price95.isEmpty ? "--" : price95 + " €")
             .foregroundColor(.orange)
-            .font(.customSize(25, weight: .bold))
-        }
+            .font(.customSize(20, weight: .medium))
+        }.padding(10)
         Spacer()
-        VStack(spacing: 2) {
+        VStack(spacing: 10) {
           Text("Diesel")
             .font(.customSize(20, weight: .bold))
-            .foregroundColor(Color.init(uiColor: .darkGray))
+            .foregroundColor(Color(.darkGray))
           Text(priceDiesel.isEmpty ? "--" : priceDiesel + " €")
             .foregroundColor(.orange)
-            .font(.customSize(25, weight: .bold))
-        }
+            .font(.customSize(20, weight: .medium))
+        }.padding(10)
         Spacer()
-        VStack(spacing: 2) {
+        VStack(spacing: 10) {
           Text("98E5")
             .font(.customSize(20, weight: .bold))
             .foregroundColor(.red)
           Text(price98.isEmpty ? "--" : price98 + " €")
             .foregroundColor(.orange)
-            .font(.customSize(25, weight: .bold))
-        }
-      }
+            .font(.customSize(20, weight: .medium))
+        }.padding(10)
+      }.background(Color(uiColor: UIColor.gray.withAlphaComponent(0.15))).cornerRadius(15)
       getDistanceLabel()
         .padding(.top, 15)
         .padding(.bottom, 15)

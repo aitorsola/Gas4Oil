@@ -115,7 +115,9 @@ struct StationsListView: View {
       }
       .focused($focused)
       .onSubmit(of: .search) {
+        #if os(iOS)
         hideKeyboard()
+        #endif
         focused = false
         viewModel.showFuelByCity(searchText)
       }

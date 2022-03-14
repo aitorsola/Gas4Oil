@@ -26,7 +26,9 @@ struct MapView: View {
         MapPin(station: $station) {
           goToMaps(coordinates: place.coordinates)
         }
+        #if os(iOS)
         .frame(width: UIScreen.main.bounds.width * 0.9)
+        #endif
       }
     }
     .ignoresSafeArea(.all, edges: .top)
