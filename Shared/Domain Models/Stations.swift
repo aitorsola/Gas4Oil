@@ -12,14 +12,15 @@ struct Stations {
   let stations: [Station]
 }
 
-struct Station: Identifiable {
+struct Station: Identifiable, Codable {
   let id: Int
   let cp: String
   let provincia: String
   let municipio: String
   let direccion: String
   let horario: String
-  let coordinates: CLLocationCoordinate2D
+  let longitude: Double
+  let latitude: Double
   let gasNaturalComprimido: String
   let gasNaturalLicuado: String
   let gasoleoA: String
@@ -35,6 +36,6 @@ struct Station: Identifiable {
   var isFav: Bool
 
   func getCLLocationCoordinates() -> CLLocation {
-    CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    CLLocation(latitude: latitude, longitude: longitude)
   }
 }

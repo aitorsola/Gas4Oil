@@ -17,7 +17,8 @@ private enum StationsEndpoints {
 
 extension Network: ServiceStationsAPI {
   
-  func getAllStations(completion: @escaping (Result<[Station], G4OError>) -> Void) {
+  func
+  getAllStations(completion: @escaping (Result<[Station], G4OError>) -> Void) {
     let request = Request(url: StationsEndpoints.allStations, method: .get)
     perform(request) { result in
       switch result {

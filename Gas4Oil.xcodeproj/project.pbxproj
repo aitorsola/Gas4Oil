@@ -11,14 +11,12 @@
 		A406706427D8BE5F00193D36 /* FavoriteStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706227D8BE5E00193D36 /* FavoriteStations.swift */; };
 		A406706D27D90F8D00193D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706C27D90F8D00193D36 /* MainTabView.swift */; };
 		A406706E27D90F8D00193D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706C27D90F8D00193D36 /* MainTabView.swift */; };
+		A41917BC27DF4A9000C9A77E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A41917BB27DF4A9000C9A77E /* Alamofire */; };
+		A41917BF27DF4B9500C9A77E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A41917BE27DF4B9500C9A77E /* Lottie */; };
 		A444764F27D12DB600B25303 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
 		A444765027D12DB600B25303 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
 		A444765327D12DB600B25303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A444764127D12DB600B25303 /* Assets.xcassets */; };
 		A444765427D12DB600B25303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A444764127D12DB600B25303 /* Assets.xcassets */; };
-		A444766327D1322C00B25303 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766227D1322C00B25303 /* LandingView.swift */; };
-		A444766427D1322C00B25303 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766227D1322C00B25303 /* LandingView.swift */; };
-		A444766627D1338300B25303 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766527D1338300B25303 /* LandingViewModel.swift */; };
-		A444766727D1338300B25303 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766527D1338300B25303 /* LandingViewModel.swift */; };
 		A444766E27D13A8300B25303 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766B27D13A3100B25303 /* Font.swift */; };
 		A444766F27D13A8300B25303 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766B27D13A3100B25303 /* Font.swift */; };
 		A444767027D13A8600B25303 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766C27D13A4800B25303 /* Parser.swift */; };
@@ -33,6 +31,7 @@
 		A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444767D27D17A5D00B25303 /* ProgressView.swift */; };
 		A444768427D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
 		A444768527D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
+		A45BE4DD27DF4CF5001533D3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A45BE4DC27DF4CF5001533D3 /* Alamofire */; };
 		A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF827D528AF0005736F /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF727D528AF0005736F /* Sequence.swift */; };
@@ -71,26 +70,7 @@
 		A48F4ABD27D4DEA10024473D /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4ABB27D4DEA10024473D /* StationView.swift */; };
 		A497C4F827D74C85009E1CC6 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497C4F727D74C85009E1CC6 /* Double.swift */; };
 		A497C4F927D74C85009E1CC6 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497C4F727D74C85009E1CC6 /* Double.swift */; };
-		A4D40C1727DE98A3003FBE8F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D40C1627DE98A3003FBE8F /* WidgetKit.framework */; };
-		A4D40C1927DE98A3003FBE8F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D40C1827DE98A3003FBE8F /* SwiftUI.framework */; };
-		A4D40C1C27DE98A3003FBE8F /* Gas4Oil_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D40C1B27DE98A3003FBE8F /* Gas4Oil_widget.swift */; };
-		A4D40C1F27DE98A4003FBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D40C1E27DE98A4003FBE8F /* Assets.xcassets */; };
-		A4D40C2127DE98A4003FBE8F /* Gas4Oil_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A4D40C1D27DE98A3003FBE8F /* Gas4Oil_widget.intentdefinition */; };
-		A4D40C2227DE98A4003FBE8F /* Gas4Oil_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A4D40C1D27DE98A3003FBE8F /* Gas4Oil_widget.intentdefinition */; };
-		A4D40C2527DE98A4003FBE8F /* Gas4Oil.widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4D40C1527DE98A3003FBE8F /* Gas4Oil.widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C2889C93680489AD747DE6E4 /* Pods_Gas4Oil__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3011958B893B5EE48E4B60 /* Pods_Gas4Oil__macOS_.framework */; };
-		F1094107BF813C0FF5AC587A /* Pods_Gas4Oil__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C943B049A046AECA493B95BF /* Pods_Gas4Oil__iOS_.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A4D40C2327DE98A4003FBE8F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A444763A27D12DB500B25303 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A4D40C1427DE98A3003FBE8F;
-			remoteInfo = Gas4Oil.widgetExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A4D40C2627DE98A4003FBE8F /* Embed App Extensions */ = {
@@ -99,7 +79,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A4D40C2527DE98A4003FBE8F /* Gas4Oil.widgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,8 +87,6 @@
 
 /* Begin PBXFileReference section */
 		6E3011958B893B5EE48E4B60 /* Pods_Gas4Oil__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas4Oil__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B9401161ED159C1EA2B132D /* Pods-Gas4Oil (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas4Oil (macOS).release.xcconfig"; path = "Target Support Files/Pods-Gas4Oil (macOS)/Pods-Gas4Oil (macOS).release.xcconfig"; sourceTree = "<group>"; };
-		A0CDA766CB182F96EC850F9D /* Pods-Gas4Oil (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas4Oil (iOS).release.xcconfig"; path = "Target Support Files/Pods-Gas4Oil (iOS)/Pods-Gas4Oil (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		A406706227D8BE5E00193D36 /* FavoriteStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStations.swift; sourceTree = "<group>"; };
 		A406706C27D90F8D00193D36 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		A444763F27D12DB500B25303 /* Gas4OilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4OilApp.swift; sourceTree = "<group>"; };
@@ -117,8 +94,6 @@
 		A444764627D12DB600B25303 /* Gas4Oil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gas4Oil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A444764C27D12DB600B25303 /* Gas4Oil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gas4Oil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A444764E27D12DB600B25303 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		A444766227D1322C00B25303 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
-		A444766527D1338300B25303 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		A444766827D1380F00B25303 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A444766B27D13A3100B25303 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		A444766C27D13A4800B25303 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -147,16 +122,9 @@
 		A48F4AB727D4B7E90024473D /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		A48F4ABB27D4DEA10024473D /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		A497C4F727D74C85009E1CC6 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		A4D40C1527DE98A3003FBE8F /* Gas4Oil.widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Gas4Oil.widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D40C1627DE98A3003FBE8F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A4D40C1827DE98A3003FBE8F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		A4D40C1B27DE98A3003FBE8F /* Gas4Oil_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4Oil_widget.swift; sourceTree = "<group>"; };
-		A4D40C1D27DE98A3003FBE8F /* Gas4Oil_widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Gas4Oil_widget.intentdefinition; sourceTree = "<group>"; };
-		A4D40C1E27DE98A4003FBE8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A4D40C2027DE98A4003FBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C943B049A046AECA493B95BF /* Pods_Gas4Oil__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas4Oil__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFC29DB331CFAE27C37A778 /* Pods-Gas4Oil (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas4Oil (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Gas4Oil (iOS)/Pods-Gas4Oil (iOS).debug.xcconfig"; sourceTree = "<group>"; };
-		F3B8CD3B9F52F7B7A3650BD7 /* Pods-Gas4Oil (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas4Oil (macOS).debug.xcconfig"; path = "Target Support Files/Pods-Gas4Oil (macOS)/Pods-Gas4Oil (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1094107BF813C0FF5AC587A /* Pods_Gas4Oil__iOS_.framework in Frameworks */,
+				A41917BC27DF4A9000C9A77E /* Alamofire in Frameworks */,
+				A41917BF27DF4B9500C9A77E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,33 +141,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2889C93680489AD747DE6E4 /* Pods_Gas4Oil__macOS_.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A4D40C1227DE98A3003FBE8F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4D40C1927DE98A3003FBE8F /* SwiftUI.framework in Frameworks */,
-				A4D40C1727DE98A3003FBE8F /* WidgetKit.framework in Frameworks */,
+				A45BE4DD27DF4CF5001533D3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D9751DB6DFE95D821B1F2AB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DDFC29DB331CFAE27C37A778 /* Pods-Gas4Oil (iOS).debug.xcconfig */,
-				A0CDA766CB182F96EC850F9D /* Pods-Gas4Oil (iOS).release.xcconfig */,
-				F3B8CD3B9F52F7B7A3650BD7 /* Pods-Gas4Oil (macOS).debug.xcconfig */,
-				7B9401161ED159C1EA2B132D /* Pods-Gas4Oil (macOS).release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		A444763927D12DB500B25303 = {
 			isa = PBXGroup;
 			children = (
@@ -209,9 +158,7 @@
 				A444765D27D130E700B25303 /* Managers */,
 				A444763E27D12DB500B25303 /* Shared */,
 				A444764D27D12DB600B25303 /* macOS */,
-				A4D40C1A27DE98A3003FBE8F /* Gas4Oil.widget */,
 				A444764727D12DB600B25303 /* Products */,
-				7D9751DB6DFE95D821B1F2AB /* Pods */,
 				FCF0FE109CA70AABE86AED44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -232,7 +179,6 @@
 			children = (
 				A444764627D12DB600B25303 /* Gas4Oil.app */,
 				A444764C27D12DB600B25303 /* Gas4Oil.app */,
-				A4D40C1527DE98A3003FBE8F /* Gas4Oil.widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,20 +225,10 @@
 				A48581C827DB3E6000864885 /* MainTabViewViewModel.swift */,
 				A406706C27D90F8D00193D36 /* MainTabView.swift */,
 				A4727BFA27D57D430005736F /* Map */,
-				A444766127D1320D00B25303 /* Landing */,
 				A48F4ABA27D4BB1E0024473D /* StationsList */,
 				A48581CE27DB3FF200864885 /* FavoriteStations */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		A444766127D1320D00B25303 /* Landing */ = {
-			isa = PBXGroup;
-			children = (
-				A444766227D1322C00B25303 /* LandingView.swift */,
-				A444766527D1338300B25303 /* LandingViewModel.swift */,
-			);
-			path = Landing;
 			sourceTree = "<group>";
 		};
 		A444766927D1383B00B25303 /* Network */ = {
@@ -397,17 +333,6 @@
 			path = StationsList;
 			sourceTree = "<group>";
 		};
-		A4D40C1A27DE98A3003FBE8F /* Gas4Oil.widget */ = {
-			isa = PBXGroup;
-			children = (
-				A4D40C1B27DE98A3003FBE8F /* Gas4Oil_widget.swift */,
-				A4D40C1D27DE98A3003FBE8F /* Gas4Oil_widget.intentdefinition */,
-				A4D40C1E27DE98A4003FBE8F /* Assets.xcassets */,
-				A4D40C2027DE98A4003FBE8F /* Info.plist */,
-			);
-			path = Gas4Oil.widget;
-			sourceTree = "<group>";
-		};
 		FCF0FE109CA70AABE86AED44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,19 +351,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A444765727D12DB600B25303 /* Build configuration list for PBXNativeTarget "Gas4Oil (iOS)" */;
 			buildPhases = (
-				26FD77C8BBF8FDC03A1FEDB2 /* [CP] Check Pods Manifest.lock */,
 				A444764227D12DB600B25303 /* Sources */,
 				A444764327D12DB600B25303 /* Frameworks */,
 				A444764427D12DB600B25303 /* Resources */,
-				5BDE1FCF7FEBDF5BF0E6C8BD /* [CP] Embed Pods Frameworks */,
 				A4D40C2627DE98A4003FBE8F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A4D40C2427DE98A4003FBE8F /* PBXTargetDependency */,
 			);
 			name = "Gas4Oil (iOS)";
+			packageProductDependencies = (
+				A41917BB27DF4A9000C9A77E /* Alamofire */,
+				A41917BE27DF4B9500C9A77E /* Lottie */,
+			);
 			productName = "Gas4Oil (iOS)";
 			productReference = A444764627D12DB600B25303 /* Gas4Oil.app */;
 			productType = "com.apple.product-type.application";
@@ -447,37 +373,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A444765A27D12DB600B25303 /* Build configuration list for PBXNativeTarget "Gas4Oil (macOS)" */;
 			buildPhases = (
-				6629C849F57970F3555E6E84 /* [CP] Check Pods Manifest.lock */,
 				A444764827D12DB600B25303 /* Sources */,
 				A444764927D12DB600B25303 /* Frameworks */,
 				A444764A27D12DB600B25303 /* Resources */,
-				77BF2D757AA27BB36C0A89E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Gas4Oil (macOS)";
+			packageProductDependencies = (
+				A45BE4DC27DF4CF5001533D3 /* Alamofire */,
+			);
 			productName = "Gas4Oil (macOS)";
 			productReference = A444764C27D12DB600B25303 /* Gas4Oil.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A4D40C1427DE98A3003FBE8F /* Gas4Oil.widgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A4D40C2927DE98A4003FBE8F /* Build configuration list for PBXNativeTarget "Gas4Oil.widgetExtension" */;
-			buildPhases = (
-				A4D40C1127DE98A3003FBE8F /* Sources */,
-				A4D40C1227DE98A3003FBE8F /* Frameworks */,
-				A4D40C1327DE98A3003FBE8F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Gas4Oil.widgetExtension;
-			productName = Gas4Oil.widgetExtension;
-			productReference = A4D40C1527DE98A3003FBE8F /* Gas4Oil.widgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -495,9 +405,6 @@
 					A444764B27D12DB600B25303 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
-					A4D40C1427DE98A3003FBE8F = {
-						CreatedOnToolsVersion = 13.3;
-					};
 				};
 			};
 			buildConfigurationList = A444763D27D12DB500B25303 /* Build configuration list for PBXProject "Gas4Oil" */;
@@ -509,13 +416,17 @@
 				es,
 			);
 			mainGroup = A444763927D12DB500B25303;
+			packageReferences = (
+				A41917BA27DF4A9000C9A77E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A41917BD27DF4B9500C9A77E /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				A45BE4DB27DF4CF5001533D3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A444764727D12DB600B25303 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				A444764527D12DB600B25303 /* Gas4Oil (iOS) */,
 				A444764B27D12DB600B25303 /* Gas4Oil (macOS) */,
-				A4D40C1427DE98A3003FBE8F /* Gas4Oil.widgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -541,96 +452,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4D40C1327DE98A3003FBE8F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4D40C1F27DE98A4003FBE8F /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		26FD77C8BBF8FDC03A1FEDB2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Gas4Oil (iOS)-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5BDE1FCF7FEBDF5BF0E6C8BD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gas4Oil (iOS)/Pods-Gas4Oil (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gas4Oil (iOS)/Pods-Gas4Oil (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gas4Oil (iOS)/Pods-Gas4Oil (iOS)-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6629C849F57970F3555E6E84 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Gas4Oil (macOS)-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		77BF2D757AA27BB36C0A89E1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gas4Oil (macOS)/Pods-Gas4Oil (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Gas4Oil (macOS)/Pods-Gas4Oil (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gas4Oil (macOS)/Pods-Gas4Oil (macOS)-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A444764227D12DB600B25303 /* Sources */ = {
@@ -643,7 +465,6 @@
 				A48581CC27DB3FE700864885 /* FavoriteListViewViewModel.swift in Sources */,
 				A48F4AAC27D219270024473D /* Stations.swift in Sources */,
 				A48581C927DB3E6000864885 /* MainTabViewViewModel.swift in Sources */,
-				A444766327D1322C00B25303 /* LandingView.swift in Sources */,
 				A48F4AB527D4B4B60024473D /* Managers.swift in Sources */,
 				A444767227D13A8A00B25303 /* LocationManager.swift in Sources */,
 				A48F4ABC27D4DEA10024473D /* StationView.swift in Sources */,
@@ -659,8 +480,6 @@
 				A444767E27D17A5D00B25303 /* ProgressView.swift in Sources */,
 				A48F4AA627D2133F0024473D /* StationsModels.swift in Sources */,
 				A444768427D1887A00B25303 /* StationsEngine.swift in Sources */,
-				A4D40C2227DE98A4003FBE8F /* Gas4Oil_widget.intentdefinition in Sources */,
-				A444766627D1338300B25303 /* LandingViewModel.swift in Sources */,
 				A406706D27D90F8D00193D36 /* MainTabView.swift in Sources */,
 				A4727BF827D528AF0005736F /* Sequence.swift in Sources */,
 				A4727BFC27D57D4B0005736F /* MapView.swift in Sources */,
@@ -680,7 +499,6 @@
 				A48581CD27DB3FE700864885 /* FavoriteListViewViewModel.swift in Sources */,
 				A48F4AAD27D219270024473D /* Stations.swift in Sources */,
 				A48581CA27DB3E6000864885 /* MainTabViewViewModel.swift in Sources */,
-				A444766427D1322C00B25303 /* LandingView.swift in Sources */,
 				A48F4AB627D4B4B60024473D /* Managers.swift in Sources */,
 				A444767327D13A8B00B25303 /* LocationManager.swift in Sources */,
 				A48F4ABD27D4DEA10024473D /* StationView.swift in Sources */,
@@ -696,7 +514,6 @@
 				A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */,
 				A48F4AA727D2133F0024473D /* StationsModels.swift in Sources */,
 				A444768527D1887A00B25303 /* StationsEngine.swift in Sources */,
-				A444766727D1338300B25303 /* LandingViewModel.swift in Sources */,
 				A406706E27D90F8D00193D36 /* MainTabView.swift in Sources */,
 				A4727BF927D528AF0005736F /* Sequence.swift in Sources */,
 				A4727BFD27D57D4B0005736F /* MapView.swift in Sources */,
@@ -706,24 +523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4D40C1127DE98A3003FBE8F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4D40C2127DE98A4003FBE8F /* Gas4Oil_widget.intentdefinition in Sources */,
-				A4D40C1C27DE98A3003FBE8F /* Gas4Oil_widget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A4D40C2427DE98A4003FBE8F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A4D40C1427DE98A3003FBE8F /* Gas4Oil.widgetExtension */;
-			targetProxy = A4D40C2327DE98A4003FBE8F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A478913D27D9217D001CA76E /* Localizable.strings */ = {
@@ -853,7 +653,6 @@
 		};
 		A444765827D12DB600B25303 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDFC29DB331CFAE27C37A778 /* Pods-Gas4Oil (iOS).debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -887,7 +686,6 @@
 		};
 		A444765927D12DB600B25303 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0CDA766CB182F96EC850F9D /* Pods-Gas4Oil (iOS).release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -922,7 +720,6 @@
 		};
 		A444765B27D12DB600B25303 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3B8CD3B9F52F7B7A3650BD7 /* Pods-Gas4Oil (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -931,6 +728,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = Resources/Assets.xcassets;
 				DEVELOPMENT_TEAM = SK4CMEFH7T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -955,7 +753,6 @@
 		};
 		A444765C27D12DB600B25303 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B9401161ED159C1EA2B132D /* Pods-Gas4Oil (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -964,6 +761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = Resources/Assets.xcassets;
 				DEVELOPMENT_TEAM = SK4CMEFH7T;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -983,65 +781,6 @@
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		A4D40C2727DE98A4003FBE8F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SK4CMEFH7T;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Gas4Oil.widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Gas4Oil.widget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AitorSola.Gas4Oil.Gas4Oil-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A4D40C2827DE98A4003FBE8F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SK4CMEFH7T;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Gas4Oil.widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Gas4Oil.widget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AitorSola.Gas4Oil.Gas4Oil-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1075,16 +814,52 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4D40C2927DE98A4003FBE8F /* Build configuration list for PBXNativeTarget "Gas4Oil.widgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A4D40C2727DE98A4003FBE8F /* Debug */,
-				A4D40C2827DE98A4003FBE8F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A41917BA27DF4A9000C9A77E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A41917BD27DF4B9500C9A77E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		A45BE4DB27DF4CF5001533D3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A41917BB27DF4A9000C9A77E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A41917BA27DF4A9000C9A77E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A41917BE27DF4B9500C9A77E /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A41917BD27DF4B9500C9A77E /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		A45BE4DC27DF4CF5001533D3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A45BE4DB27DF4CF5001533D3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A444763A27D12DB500B25303 /* Project object */;
 }

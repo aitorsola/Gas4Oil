@@ -6,6 +6,7 @@
 //
 
 import CoreLocation
+import SwiftUI
 
 enum CommonStationBrand: String {
   case alcampo
@@ -33,16 +34,26 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 100
+  private var kMaxLenght = 200
 
   let defaults: UserDefaults = UserDefaults.standard
 
   var allStations: [Station] = []
   var currentSortType: SortType = .near95
-  var currentCity: String? = ""
+  var currentCity: String?
   var currentSortBrand: FuelBrandSortType = .all
+  var updateFavorites: Bool = true
 
+  @Published var locationAllowed: Bool = false {
+    didSet {
+      isLoading = !locationAllowed
+    }
+  }
+  @Published var isLoading: Bool = false
+  @Published var navigationTitle: String?
+  @Published var isLoaded: Bool = false
   @Published var stations: [Station] = []
+  @Published var favorites: [Station] = []
   @Published var allBrands: [CommonStationBrand] = [
     .alcampo,
     .avia,
@@ -58,42 +69,56 @@ class StationsListViewViewModel: ObservableObject {
     .petronor,
     .repsol,
     .petroprix,
-    .shell].sorted(by: {$0.rawValue < $1.rawValue})
-  @Published var isLoading: Bool = true
-  @Published var navigationTitle: String?
-
-  @Published var isLoaded: Bool = false
+    .shell].sorted(by: { $0.rawValue < $1.rawValue })
 
   // MARK: - Lifecycle
 
   init(locationManager: LocationManager = Managers.location, servicesAPI: ServiceStationsAPI = Network()) {
     self.locationManager = locationManager
     self.servicesStationsAPI = servicesAPI
+    #if os(macOS)
+      self.locationAllowed = locationManager.currentAuth == .authorized || locationManager.currentAuth == .authorizedAlways
+    #else
+      self.locationAllowed = locationManager.currentAuth == .authorizedWhenInUse
+    #endif
+    _ = FavoriteStations.getAllFavorites()
     setupLocationManager()
   }
 
   // MARK: - Public
 
   func requestLocation() {
-    isLoading = true
+    #if os(iOS)
+    if locationManager.currentAuth == .denied {
+      UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+      return
+    }
+    #endif
     locationManager.requestAuth()
   }
 
-  func saveFavoriteStation(_ station: Station) {
-    stations = FavoriteStations.manageFavorite(station, stations: stations)
-    allStations = stations
+  func favoriteStationTapAction(_ station: Station) {
+    favorites = FavoriteStations.manageFavorite(station)
+    // update model
+    guard let index = stations.firstIndex(where: {$0.id == station.id }) else {
+      return
+    }
+    stations[index].isFav = favorites.contains(where: {$0.id == stations[index].id })
   }
 
   // MARK: - Private
 
-  private func getStations(for city: String?) {
+  private func getStations() {
+    locationAllowed = true
     isLoading = true
     allStations = []
     stations = []
+    currentCity = nil
     currentSortType = .near95
     currentSortBrand = .all
-    self.servicesStationsAPI.getAllStations { result in
+    servicesStationsAPI.getAllStations { result in
       self.isLoaded = true
+      self.isLoading = false
       switch result {
       case .success(let stations):
         self.allStations = stations
@@ -134,8 +159,8 @@ class StationsListViewViewModel: ObservableObject {
             case .brand(let brand):
               return station.rotulo.contains(brand.uppercased())
             }
-          })
-        self.isLoading = false
+          }
+          .prefix(self.kMaxLenght))
       case .failure(let error):
         print(error.localizedDescription)
       }
@@ -144,6 +169,9 @@ class StationsListViewViewModel: ObservableObject {
 
   private func setupLocationManager() {
     locationManager.delegate = self
+    #if os(macOS)
+    locationManager.requestAuth()
+    #endif
   }
 }
 
@@ -157,9 +185,14 @@ extension StationsListViewViewModel {
     case .all:
       showFuelSorted(currentSortType)
     case .brand(let brand):
-      self.stations = Array(self.allStations
+      let newStations = Array(self.allStations
         .filter({$0.rotulo.contains(brand.uppercased())})
-        .filter {$0.municipio == currentCity?.lowercased() || $0.provincia == currentCity?.lowercased() }
+        .filter({ station in
+          guard let currentCity = currentCity else {
+            return true
+          }
+          return station.municipio == currentCity.lowercased() || station.provincia == currentCity.lowercased()
+        })
         .sorted(by: { station1, station2 in
           switch self.currentSortType {
           case .near95, .near98, .nearDiesel:
@@ -187,13 +220,14 @@ extension StationsListViewViewModel {
           case .nearDiesel, .priceDieselUp, .priceDieselDown:
             return !station.gasoleoA.isEmpty
           }
-        })
+        }.prefix(kMaxLenght))
+      stations = newStations
     }
   }
 
   func showFuelByCity(_ city: String) {
     currentCity = city.lowercased()
-    self.stations = Array(self.allStations
+    let newStations = Array(self.allStations
       .filter {$0.municipio == city.lowercased() || $0.provincia == city.lowercased() }
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
@@ -220,15 +254,20 @@ extension StationsListViewViewModel {
         case .brand(let brand):
           return station.rotulo.contains(brand.uppercased())
         }
-      })
-
+      }.prefix(kMaxLenght))
+    stations = newStations
     navigationTitle = city.capitalized
   }
 
   func showFuelSorted(_ by: SortType) {
     self.currentSortType = by
-    self.stations = Array(self.allStations
-      .filter {$0.municipio == currentCity?.lowercased() || $0.provincia == currentCity?.lowercased() }
+    let newStations = Array(self.allStations
+      .filter({ station in
+        guard let currentCity = currentCity else {
+          return true
+        }
+        return station.municipio == currentCity.lowercased() || station.provincia == currentCity.lowercased()
+      })
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
         case .near95, .near98, .nearDiesel:
@@ -264,7 +303,8 @@ extension StationsListViewViewModel {
         case .brand(let brand):
           return station.rotulo.contains(brand.uppercased())
         }
-      })
+      }.prefix(kMaxLenght))
+    stations = newStations
   }
 
   private func sortStationsByProximity(station1: Station, station2: Station, sortType: SortType) -> Bool {
@@ -287,10 +327,10 @@ extension StationsListViewViewModel {
     default:
       break
     }
-    let station1Coord = CLLocation(latitude: station1.coordinates.latitude,
-                                   longitude: station1.coordinates.longitude)
-    let station2Coord = CLLocation(latitude: station2.coordinates.latitude,
-                                   longitude: station2.coordinates.longitude)
+    let station1Coord = CLLocation(latitude: station1.latitude,
+                                   longitude: station1.longitude)
+    let station2Coord = CLLocation(latitude: station2.latitude,
+                                   longitude: station2.longitude)
     return station1Coord.distance(from: pointToCompare) < station2Coord.distance(from: pointToCompare)
   }
 
@@ -301,9 +341,8 @@ extension StationsListViewViewModel {
 extension StationsListViewViewModel: LocationManagerDelegate {
 
   func didGet(city: String?) {
-    self.currentCity = city?.lowercased()
     self.navigationTitle = city?.capitalized
-    getStations(for: currentCity)
+    getStations()
   }
 
   func didFailGettingLocation(_ error: Error) {

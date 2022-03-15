@@ -30,9 +30,17 @@ struct FavoriteListView: View {
             getStationView(station)
           }
         }
+        #if os(macOS)
+        .frame(minWidth: 350, idealWidth: 350, maxWidth: 350)
+        .listStyle(.sidebar)
+        #elseif os(iOS)
         .listStyle(.plain)
+        #endif
         .navigationTitle("Favorite Stations")
       }
+    }
+    .onAppear {
+      viewModel.getFavorites()
     }
   }
 }

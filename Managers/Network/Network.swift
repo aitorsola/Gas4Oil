@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import Foundation
 
 struct Request {
   let url: String

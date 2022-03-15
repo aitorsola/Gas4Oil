@@ -48,7 +48,7 @@ class Location: NSObject, LocationManager {
     if case .notDetermined  = manager.authorizationStatus {
       manager.requestWhenInUseAuthorization()
     } else {
-      manager.requestLocation()
+      manager.startUpdatingLocation()
     }
   }
 

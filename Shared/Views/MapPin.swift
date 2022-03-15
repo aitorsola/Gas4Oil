@@ -88,6 +88,6 @@ struct MapPin: View {
 
 struct MapPin_Previews: PreviewProvider {
   static var previews: some View {
-    MapPin(station: .constant(Station(id: 0, cp: "", provincia: "", municipio: "", direccion: "", horario: "", coordinates: CLLocationCoordinate2D.init(latitude: 1.111, longitude: 0.1231), gasNaturalComprimido: "", gasNaturalLicuado: "", gasoleoA: "", gasoleoB: "", gasoleoPremium: "", gasolina95E10: "", gasolina95E5: "", gasolina95E5Premium: "", gasolina98E10: "", gasolina98E5: "", hidrogeno: "", rotulo: "", isFav: false)))
+    MapPin(station: .constant(Station(id: 0, cp: "", provincia: "", municipio: "", direccion: "", horario: "", longitude: 0, latitude: 0, gasNaturalComprimido: "", gasNaturalLicuado: "", gasoleoA: "", gasoleoB: "", gasoleoPremium: "", gasolina95E10: "", gasolina95E5: "", gasolina95E5Premium: "", gasolina98E10: "", gasolina98E5: "", hidrogeno: "", rotulo: "", isFav: false)))
   }
 }

@@ -62,7 +62,10 @@ struct StationView: View {
             .foregroundColor(.orange)
             .font(.customSize(20, weight: .medium))
         }.padding(10)
-      }.background(Color(uiColor: UIColor.gray.withAlphaComponent(0.15))).cornerRadius(15)
+      }
+      #if os(iOS)
+      .background(Color(uiColor: UIColor.gray.withAlphaComponent(0.15))).cornerRadius(15)
+      #endif
       getDistanceLabel()
         .padding(.top, 15)
         .padding(.bottom, 15)

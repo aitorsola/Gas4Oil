@@ -27,23 +27,41 @@ enum FuelBrandSortType: Hashable {
 
 struct StationsListView: View {
 
-  @StateObject var viewModel: StationsListViewViewModel = StationsListViewViewModel()
+  @StateObject var viewModel: StationsListViewViewModel
 
   @State private var sortType: SortType = .near95
-  @State private var searchText: String = ""
   @State private var sortBrand: FuelBrandSortType = .all
 
   @FocusState private var focused: Bool
 
   var body: some View {
-    if viewModel.isLoading {
+    if !viewModel.locationAllowed {
+      VStack(spacing: 10) {
+        Spacer()
+        HStack {
+          Image("icn_main_logo", bundle: nil)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 40, height: 40, alignment: .center)
+            .clipped()
+          Text("Gas4Oil").font(.customSize(50))
+        }
+        Text("landingView.title.discover".translated)
+          .font(.customSize(20)).multilineTextAlignment(.center)
+        Spacer()
+        Gas4OilButton(title: "landingView.button.requestLocationPermission".translated, image: nil) {
+          self.viewModel.requestLocation()
+        }
+        Spacer()
+      }
+    } else if viewModel.isLoading {
       ProgressView(title: "common.gettingLocation".translated)
     } else {
       NavigationView {
         VStack(spacing: 15) {
           HStack {
             Spacer()
-            Picker("brand", selection: $sortBrand) {
+            Picker("Brand", selection: $sortBrand) {
               Label("All", systemImage: "fuelpump.fill").tag(FuelBrandSortType.all)
               Divider()
               ForEach(viewModel.allBrands, id: \.self) { brand in
@@ -54,7 +72,7 @@ struct StationsListView: View {
               viewModel.showByBrand(newValue)
             }
             Spacer()
-            Picker("", selection: $sortType) {
+            Picker("Sort", selection: $sortType) {
               Group {
                 Label("listView.sortType.near95.button".translated, systemImage: "location.fill")
                   .tag(SortType.near95)
@@ -88,38 +106,28 @@ struct StationsListView: View {
             }
             Spacer()
           }
-          
+
           List(viewModel.stations) { station in
             createNavigationLink(station)
-          }.listStyle(.plain)
+          }
+          #if os(macOS)
+          .listStyle(.sidebar)
+          #elseif os(iOS)
+          .listStyle(.plain)
+          #endif
           Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location")) {
             self.sortBrand = .all
             self.sortType = .near95
             viewModel.requestLocation()
           }.padding(.bottom, 10)
+          #if os(macOS)
+            .frame(minWidth: 350, idealWidth: 350, maxWidth: 350)
+          #endif
         }
         .navigationTitle(viewModel.navigationTitle ?? "")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.automatic)
         #endif
-      }
-      .searchable(text: $searchText) {
-        let item = viewModel.allStations
-          .map({$0.municipio}).unique()
-          .filter { municipio in
-            municipio.localizedCaseInsensitiveContains(searchText)
-          }
-        ForEach(item, id: \.self) { item in
-          Text(item.capitalized).searchCompletion(item)
-        }
-      }
-      .focused($focused)
-      .onSubmit(of: .search) {
-        #if os(iOS)
-        hideKeyboard()
-        #endif
-        focused = false
-        viewModel.showFuelByCity(searchText)
       }
     }
   }
@@ -153,14 +161,14 @@ extension StationsListView {
                 coordinates: station.getCLLocationCoordinates(),
                 showFavButton: true,
                 isFav: station.isFav) {
-      viewModel.saveFavoriteStation(station)
+      viewModel.favoriteStationTapAction(station)
     }
   }
 }
 
 struct StationsListView_Previews: PreviewProvider {
   static var previews: some View {
-    StationsListView()
+    StationsListView(viewModel: StationsListViewViewModel())
       .preferredColorScheme(.dark)
   }
 }

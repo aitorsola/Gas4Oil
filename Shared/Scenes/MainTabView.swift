@@ -21,7 +21,6 @@ struct MainTabView: View {
 
   var body: some View {
     TabView(selection: $tabSelected) {
-      
       StationsListView(viewModel: viewModel.listViewViewModel)
         .tag(TabSelectedType.stations.rawValue)
         .tabItem {
@@ -30,7 +29,6 @@ struct MainTabView: View {
             Text("mainTab.stationsTabTitle".translated)
           }
         }
-      
       FavoriteListView(viewModel: viewModel.favoriteViewViewModel)
         .tag(TabSelectedType.favorite.rawValue)
         .tabItem {
@@ -39,11 +37,11 @@ struct MainTabView: View {
             Text("mainTab.favTabTitle".translated)
           }
         }
-        .onReceive(viewModel.listViewViewModel.$stations, perform: { _ in
-          let allStations = viewModel.listViewViewModel.allStations
-          viewModel.favoriteViewViewModel.getFavoriteStations(allStations: allStations)
+        .onReceive(viewModel.listViewViewModel.$favorites, perform: { stations in
+          viewModel.favoriteViewViewModel.updateFavoriteStations(allStations: stations)
         })
     }
+    .padding(.top, 10)
     .font(.headline)
   }
 }

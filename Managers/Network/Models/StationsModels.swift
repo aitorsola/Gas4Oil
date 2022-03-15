@@ -76,22 +76,14 @@ struct StationsResponse: Decodable, DomainConvertible {
         return nil
       }
 
-      let isFavorite: Bool
-
-      if let currentFavoriteStations = UserDefaults.standard.value(forKey: "favs") as? [Int] {
-        isFavorite = currentFavoriteStations.contains(where: {$0 == id }) 
-      } else {
-        isFavorite = false
-      }
-
       return Station(id: id,
                      cp: cp,
                      provincia: provincia.lowercased(),
                      municipio: municipio.lowercased(),
                      direccion: direccion,
                      horario: horario,
-                     coordinates: CLLocationCoordinate2D(latitude: Double(latitud.replacingOccurrences(of: ",", with: ".")) ?? 0,
-                                                         longitude: Double(longitud.replacingOccurrences(of: ",", with: ".")) ?? 0),
+                     longitude: Double(longitud.replacingOccurrences(of: ",", with: ".")) ?? 0,
+                     latitude: Double(latitud.replacingOccurrences(of: ",", with: ".")) ?? 0,
                      gasNaturalComprimido: gasNaturalComprimido,
                      gasNaturalLicuado: gasNaturalLicuado,
                      gasoleoA: gasoleoA,
@@ -104,7 +96,7 @@ struct StationsResponse: Decodable, DomainConvertible {
                      gasolina98E5: gasolina98E5,
                      hidrogeno: hidrogeno,
                      rotulo: rotulo,
-                     isFav: isFavorite)
+                     isFav: FavoriteStations.isFavorite(id))
     }
 
   }

@@ -11,37 +11,69 @@ import SwiftUI
 class FavoriteStations {
 
   private static var defaults = UserDefaults.standard
-  private static var allFavorites: [Int] = defaults.value(forKey: "favs") as? [Int] ?? []
+  private static var allFavorites: [Station] = []
 
-  static func manageFavorite(_ station: Station, stations: [Station]) -> [Station] {
-    if allFavorites.isEmpty {
-      return saveNewFavorite(station, stations: stations)
-    } else {
-      if allFavorites.contains(where: {$0 == station.id }) {
-        return removeFavorite(station, stations: stations)
+  static func manageFavorite(_ station: Station) -> [Station] {
+    if let allFavorites = defaults.object(forKey: "favs") as? Data { // key in defaults exists
+      let decoder = JSONDecoder()
+      if let stationsDecoded = try? decoder.decode([Station].self, from: allFavorites) {
+        self.allFavorites = stationsDecoded
+        if stationsDecoded.contains(where: {$0.id == station.id}) {
+          return removeFavorite(station)
+        } else {
+          return saveNewFavorite(station)
+        }
       } else {
-        return saveNewFavorite(station, stations: stations)
+        return saveNewFavorite(station)
       }
+    } else { // never saved any favorite station
+      return saveNewFavorite(station)
     }
   }
 
-  static private func saveNewFavorite(_ station: Station, stations: [Station]) -> [Station] {
-    allFavorites.append(station.id)
-    defaults.set(allFavorites, forKey: "favs")
-    return getNewFavoriteStations(stations)
-  }
-
-  static private func removeFavorite(_ station: Station, stations: [Station]) -> [Station] {
-    allFavorites.removeAll(where: {$0 == station.id})
-    defaults.set(allFavorites, forKey: "favs")
-    return getNewFavoriteStations(stations)
-  }
-
-  static private func getNewFavoriteStations(_ stations: [Station]) -> [Station] {
-    var stations = stations
-    for i in 0..<stations.count {
-      stations[i].isFav = allFavorites.contains(where: {$0 == stations[i].id})
+  static private func saveNewFavorite(_ station: Station) -> [Station] {
+    var station = station
+    station.isFav = true
+    allFavorites.append(station)
+    do {
+      let encoder = JSONEncoder()
+      let data = try encoder.encode(allFavorites)
+      defaults.set(data, forKey: "favs")
+      defaults.synchronize()
+    } catch(let error) {
+      print(error.localizedDescription)
     }
-    return stations
+    return allFavorites
+  }
+
+  static private func removeFavorite(_ station: Station) -> [Station] {
+    allFavorites.removeAll(where: {$0.id == station.id})
+    do {
+      let encoder = JSONEncoder()
+      let data = try encoder.encode(allFavorites)
+      defaults.set(data, forKey: "favs")
+      defaults.synchronize()
+    } catch(let error) {
+      print(error.localizedDescription)
+    }
+    return allFavorites
+  }
+
+  static func isFavorite(_ stationId: Int) -> Bool {
+    allFavorites.contains(where: { $0.id == stationId })
+  }
+
+  static func getAllFavorites() -> [Station] {
+    if let object = defaults.object(forKey: "favs") as? Data {
+      let decoder = JSONDecoder()
+      if let stations = try? decoder.decode([Station].self, from: object) {
+        allFavorites = stations
+        return stations
+      } else {
+        return []
+      }
+    } else {
+      return []
+    }
   }
 }
