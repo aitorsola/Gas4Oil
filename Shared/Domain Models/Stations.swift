@@ -23,14 +23,14 @@ struct Station: Identifiable, Codable {
   let latitude: Double
   let gasNaturalComprimido: String
   let gasNaturalLicuado: String
-  let gasoleoA: String
+  var gasoleoA: String
   let gasoleoB: String
   let gasoleoPremium: String
   let gasolina95E10: String
-  let gasolina95E5: String
+  var gasolina95E5: String
   let gasolina95E5Premium: String
   let gasolina98E10: String
-  let gasolina98E5: String
+  var gasolina98E5: String
   let hidrogeno: String
   let rotulo: String
   var isFav: Bool

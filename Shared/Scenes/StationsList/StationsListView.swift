@@ -31,6 +31,7 @@ struct StationsListView: View {
 
   @State private var sortType: SortType = .near95
   @State private var sortBrand: FuelBrandSortType = .all
+  @State private var queryString: String = ""
 
   @FocusState private var focused: Bool
 
@@ -110,24 +111,33 @@ struct StationsListView: View {
           List(viewModel.stations) { station in
             createNavigationLink(station)
           }
-          #if os(macOS)
+          .searchable(text: $queryString, placement: .navigationBarDrawer(displayMode: .automatic)) {
+            ForEach(viewModel.searchResults(text: queryString.lowercased()), id: \.self) { province in
+              Text(province.capitalized)
+                .searchCompletion(province.capitalized)
+                .onTapGesture {
+                  viewModel.showFuelByCity(province)
+                }
+            }
+          }
+#if os(macOS)
           .listStyle(.sidebar)
-          #elseif os(iOS)
+#elseif os(iOS)
           .listStyle(.plain)
-          #endif
+#endif
           Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location")) {
             self.sortBrand = .all
             self.sortType = .near95
             viewModel.requestLocation()
           }.padding(.bottom, 10)
-          #if os(macOS)
+#if os(macOS)
             .frame(minWidth: 350, idealWidth: 350, maxWidth: 350)
-          #endif
+#endif
         }
         .navigationTitle(viewModel.navigationTitle ?? "")
-        #if os(iOS)
+#if os(iOS)
         .navigationBarTitleDisplayMode(.automatic)
-        #endif
+#endif
       }
     }
   }
