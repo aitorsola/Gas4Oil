@@ -23,18 +23,6 @@ struct MainTabView: View {
   var body: some View {
     VStack {
 
-//      Image(systemName: "fuelpump.fill")
-//        .resizable()
-//        .frame(width: 30, height: 30)
-//        .aspectRatio(contentMode: .fit)
-//        .clipped()
-//      #if os(macOS)
-//        .padding(.top, 20)
-//      #endif
-//        .onTapGesture {
-//          showAlert = true
-//        }
-
       TabView(selection: $tabSelected) {
 
         StationsListView(viewModel: viewModel.listViewViewModel)

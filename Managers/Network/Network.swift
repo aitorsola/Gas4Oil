@@ -6,25 +6,20 @@
 //  Copyright © 2020 Abhilash Mathur. All rights reserved.
 //
 
-import Alamofire
 import Foundation
+
+enum HTTPMethod: String {
+  case post
+  case get
+  case patch
+  case delete
+}
 
 struct Request {
   let url: String
   let method: HTTPMethod
-  let parameters: [String:String]? = nil
-  let headers: HTTPHeaders? = nil
-
-  func toURL() -> URLConvertible {
-    Gas4OilURL(url: url)
-  }
-}
-
-struct Gas4OilURL: URLConvertible {
-  let url: String
-  func asURL() throws -> URL {
-    URL(string: url)!
-  }
+  let parameters: [String: String]? = nil
+  let headers: [String: String]? = nil
 }
 
 enum G4OError: Error {
@@ -35,20 +30,20 @@ enum G4OError: Error {
 class Network {
 
   func perform(_ request: Request, completion: @escaping (Result<Data, G4OError>) -> Void) {
-    AF.request(request.toURL(),
-               method: request.method,
-               parameters: request.parameters,
-               encoder: .json, headers: request.headers).response { response in
-      switch response.result {
-      case .success(let data):
-        guard let data = data else {
-          completion(.failure(.networkProblem))
-          return
-        }
-        completion(.success(data))
-      case .failure:
-        completion(.failure(.networkProblem))
-      }
+    guard let url = URL(string: request.url) else {
+      completion(.failure(.networkProblem))
+      return
     }
+    var urlRequest = URLRequest(url: url)
+    urlRequest.httpMethod = request.method.rawValue
+
+    URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
+      guard let data = data else {
+        completion(.failure(.networkProblem))
+        return
+      }
+      completion(.success(data))
+    })
+    .resume()
   }
 }

@@ -34,7 +34,7 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 200
+  private var kMaxLenght = 10
 
   let defaults: UserDefaults = UserDefaults.standard
 
@@ -128,13 +128,15 @@ class StationsListViewViewModel: ObservableObject {
     currentSortType = .near95
     currentSortBrand = .all
     servicesStationsAPI.getAllStations { result in
-      self.isLoaded = true
-      self.isLoading = false
+      DispatchQueue.main.async {
+        self.isLoaded = true
+        self.isLoading = false
+      }
       switch result {
       case .success(let stations):
         self.allStations = stations
         self.updateFavoriteStationsData(stations: self.allStations)
-        self.stations = Array(self.allStations
+        let stations = Array(self.allStations
           .filter { !$0.gasolina95E5.isEmpty }
           .sorted(by: { station1, station2 in
             switch self.currentSortType {
@@ -173,6 +175,9 @@ class StationsListViewViewModel: ObservableObject {
             }
           }
           .prefix(self.kMaxLenght))
+        DispatchQueue.main.async {
+          self.stations = stations
+        }
       case .failure(let error):
         print(error.localizedDescription)
       }
@@ -355,7 +360,9 @@ extension StationsListViewViewModel {
         allFavs[index].gasoleoA = station.gasoleoA
       }
     }
-    favorites = allFavs
+    DispatchQueue.main.async {
+      self.favorites = allFavs
+    }
   }
 }
 

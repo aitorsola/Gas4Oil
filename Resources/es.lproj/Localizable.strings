@@ -21,6 +21,8 @@
 
 "listView.button.requestLocation" = "Estaciones cercanas";
 
+"listView.search.placeholder" = "Busca por población";
+
 "listView.sortType.all.button" = "Todo";
 "listView.sortType.near95.button" = "Cerca 95";
 "listView.sortType.down95.button" = "Precio más bajo 95";

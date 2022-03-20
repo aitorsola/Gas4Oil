@@ -21,6 +21,7 @@
 
 "listView.button.requestLocation" = "Get near stations";
 
+"listView.search.placeholder" = "Search by locality";
 
 "listView.sortType.all.button" = "All";
 "listView.sortType.near95.button" = "Near 95";

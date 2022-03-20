@@ -56,10 +56,37 @@ struct StationsListView: View {
         Spacer()
       }
     } else if viewModel.isLoading {
+#if os(iOS)
+      LottieView(name: "location", loopMode: .loop)
+
+        .frame(width: 100, height: 100)
+#else
       ProgressView(title: "common.gettingLocation".translated)
+#endif
     } else {
       NavigationView {
         VStack(spacing: 15) {
+          List(viewModel.stations) { station in
+            createNavigationLink(station)
+          }
+          .navigationTitle(viewModel.navigationTitle ?? "")
+#if os(iOS)
+          .navigationBarTitleDisplayMode(.automatic)
+#endif
+          .searchable(text: $queryString, placement: .automatic, prompt: Text("listView.search.placeholder")) {
+            ForEach(viewModel.searchResults(text: queryString.lowercased()), id: \.self) { province in
+              Text(province.capitalized)
+                .searchCompletion(province.capitalized)
+            }
+          }.onSubmit(of: .search) {
+            viewModel.showFuelByCity(queryString)
+          }
+#if os(macOS)
+          .listStyle(.sidebar)
+#elseif os(iOS)
+          .listStyle(.plain)
+#endif
+
           HStack {
             Spacer()
             Picker("Brand", selection: $sortBrand) {
@@ -108,36 +135,16 @@ struct StationsListView: View {
             Spacer()
           }
 
-          List(viewModel.stations) { station in
-            createNavigationLink(station)
-          }
-          .searchable(text: $queryString, placement: .navigationBarDrawer(displayMode: .automatic)) {
-            ForEach(viewModel.searchResults(text: queryString.lowercased()), id: \.self) { province in
-              Text(province.capitalized)
-                .searchCompletion(province.capitalized)
-                .onTapGesture {
-                  viewModel.showFuelByCity(province)
-                }
-            }
-          }
-#if os(macOS)
-          .listStyle(.sidebar)
-#elseif os(iOS)
-          .listStyle(.plain)
-#endif
           Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location")) {
             self.sortBrand = .all
             self.sortType = .near95
             viewModel.requestLocation()
-          }.padding(.bottom, 10)
+          }
+          .padding(.bottom, 10)
 #if os(macOS)
-            .frame(minWidth: 350, idealWidth: 350, maxWidth: 350)
+          .frame(minWidth: 350, idealWidth: 350, maxWidth: 350)
 #endif
         }
-        .navigationTitle(viewModel.navigationTitle ?? "")
-#if os(iOS)
-        .navigationBarTitleDisplayMode(.automatic)
-#endif
       }
     }
   }
@@ -153,9 +160,9 @@ struct StationsListView: View {
 
 #if canImport(UIKit)
 extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
+  func hideKeyboard() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+  }
 }
 #endif
 

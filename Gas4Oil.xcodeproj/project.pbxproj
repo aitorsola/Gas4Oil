@@ -11,7 +11,11 @@
 		A406706427D8BE5F00193D36 /* FavoriteStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706227D8BE5E00193D36 /* FavoriteStations.swift */; };
 		A406706D27D90F8D00193D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706C27D90F8D00193D36 /* MainTabView.swift */; };
 		A406706E27D90F8D00193D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706C27D90F8D00193D36 /* MainTabView.swift */; };
-		A41917BC27DF4A9000C9A77E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A41917BB27DF4A9000C9A77E /* Alamofire */; };
+		A416FCA427E663C200FCC16A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416FCA327E663C200FCC16A /* LottieView.swift */; };
+		A416FCA527E663C200FCC16A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416FCA327E663C200FCC16A /* LottieView.swift */; };
+		A416FCAA27E6977700FCC16A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A416FCA927E6977700FCC16A /* location.json */; };
+		A416FCAB27E6977700FCC16A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A416FCA927E6977700FCC16A /* location.json */; };
+		A416FCAE27E6A2D600FCC16A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A416FCAD27E6A2D600FCC16A /* Lottie */; };
 		A41917BF27DF4B9500C9A77E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A41917BE27DF4B9500C9A77E /* Lottie */; };
 		A444764F27D12DB600B25303 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
 		A444765027D12DB600B25303 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
@@ -31,7 +35,6 @@
 		A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444767D27D17A5D00B25303 /* ProgressView.swift */; };
 		A444768427D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
 		A444768527D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
-		A45BE4DD27DF4CF5001533D3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A45BE4DC27DF4CF5001533D3 /* Alamofire */; };
 		A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF827D528AF0005736F /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF727D528AF0005736F /* Sequence.swift */; };
@@ -89,6 +92,8 @@
 		6E3011958B893B5EE48E4B60 /* Pods_Gas4Oil__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas4Oil__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A406706227D8BE5E00193D36 /* FavoriteStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStations.swift; sourceTree = "<group>"; };
 		A406706C27D90F8D00193D36 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		A416FCA327E663C200FCC16A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		A416FCA927E6977700FCC16A /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
 		A444763F27D12DB500B25303 /* Gas4OilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4OilApp.swift; sourceTree = "<group>"; };
 		A444764127D12DB600B25303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A444764627D12DB600B25303 /* Gas4Oil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gas4Oil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A41917BC27DF4A9000C9A77E /* Alamofire in Frameworks */,
 				A41917BF27DF4B9500C9A77E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A45BE4DD27DF4CF5001533D3 /* Alamofire in Frameworks */,
+				A416FCAE27E6A2D600FCC16A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +270,7 @@
 		A444767727D143BB00B25303 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				A416FCA927E6977700FCC16A /* location.json */,
 				A444767827D143C500B25303 /* gas_station.json */,
 			);
 			path = Lottie;
@@ -278,6 +283,7 @@
 				A48F4ABB27D4DEA10024473D /* StationView.swift */,
 				A4727BF427D519740005736F /* Gas4OilButton.swift */,
 				A4727C0227D600BE0005736F /* MapPin.swift */,
+				A416FCA327E663C200FCC16A /* LottieView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,7 +368,6 @@
 			);
 			name = "Gas4Oil (iOS)";
 			packageProductDependencies = (
-				A41917BB27DF4A9000C9A77E /* Alamofire */,
 				A41917BE27DF4B9500C9A77E /* Lottie */,
 			);
 			productName = "Gas4Oil (iOS)";
@@ -383,7 +388,7 @@
 			);
 			name = "Gas4Oil (macOS)";
 			packageProductDependencies = (
-				A45BE4DC27DF4CF5001533D3 /* Alamofire */,
+				A416FCAD27E6A2D600FCC16A /* Lottie */,
 			);
 			productName = "Gas4Oil (macOS)";
 			productReference = A444764C27D12DB600B25303 /* Gas4Oil.app */;
@@ -417,9 +422,8 @@
 			);
 			mainGroup = A444763927D12DB500B25303;
 			packageReferences = (
-				A41917BA27DF4A9000C9A77E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A41917BD27DF4B9500C9A77E /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				A45BE4DB27DF4CF5001533D3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A416FCAC27E6A2D600FCC16A /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A444764727D12DB600B25303 /* Products */;
 			projectDirPath = "";
@@ -437,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A444767927D143C500B25303 /* gas_station.json in Resources */,
+				A416FCAA27E6977700FCC16A /* location.json in Resources */,
 				A478913A27D9217D001CA76E /* Localizable.strings in Resources */,
 				A444765327D12DB600B25303 /* Assets.xcassets in Resources */,
 			);
@@ -447,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A444767A27D143C500B25303 /* gas_station.json in Resources */,
+				A416FCAB27E6977700FCC16A /* location.json in Resources */,
 				A478913B27D9217D001CA76E /* Localizable.strings in Resources */,
 				A444765427D12DB600B25303 /* Assets.xcassets in Resources */,
 			);
@@ -470,6 +476,7 @@
 				A48F4ABC27D4DEA10024473D /* StationView.swift in Sources */,
 				A48F4AB827D4B7E90024473D /* Device.swift in Sources */,
 				A4727BFF27D57D5F0005736F /* MapViewViewModel.swift in Sources */,
+				A416FCA427E663C200FCC16A /* LottieView.swift in Sources */,
 				A497C4F827D74C85009E1CC6 /* Double.swift in Sources */,
 				A48581C627DAC54100864885 /* FavoriteListView.swift in Sources */,
 				A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */,
@@ -504,6 +511,7 @@
 				A48F4ABD27D4DEA10024473D /* StationView.swift in Sources */,
 				A48F4AB927D4B7E90024473D /* Device.swift in Sources */,
 				A4727C0027D57D5F0005736F /* MapViewViewModel.swift in Sources */,
+				A416FCA527E663C200FCC16A /* LottieView.swift in Sources */,
 				A497C4F927D74C85009E1CC6 /* Double.swift in Sources */,
 				A48581C727DAC54100864885 /* FavoriteListView.swift in Sources */,
 				A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */,
@@ -817,9 +825,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A41917BA27DF4A9000C9A77E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		A416FCAC27E6A2D600FCC16A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -829,35 +837,22 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		A45BE4DB27DF4CF5001533D3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				kind = exactVersion;
+				version = 3.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A41917BB27DF4A9000C9A77E /* Alamofire */ = {
+		A416FCAD27E6A2D600FCC16A /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A41917BA27DF4A9000C9A77E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = A416FCAC27E6A2D600FCC16A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		A41917BE27DF4B9500C9A77E /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A41917BD27DF4B9500C9A77E /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		A45BE4DC27DF4CF5001533D3 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A45BE4DB27DF4CF5001533D3 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
