@@ -179,6 +179,7 @@ extension StationsListView {
                 schedule: station.horario,
                 coordinates: station.getCLLocationCoordinates(),
                 showFavButton: true,
+                averageFillDeposit: 0,
                 isFav: station.isFav) {
       viewModel.favoriteStationTapAction(station)
     }

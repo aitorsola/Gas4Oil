@@ -28,6 +28,8 @@ struct StationView: View {
   let coordinates: CLLocation
   let showFavButton: Bool
 
+  var averageFillDeposit: Int
+
   @State var isFav: Bool
   @State var makeBig: Bool = false
 
@@ -79,6 +81,8 @@ struct StationView: View {
       }.font(.customSize(20, weight: .bold))
       Spacer()
       Text(address.capitalized)
+      Spacer()
+      Text("")
       Spacer()
       HStack(alignment: .bottom) {
         Text("station.schedule".translated + ": " + schedule.capitalized)
@@ -180,10 +184,11 @@ struct StationView_Previews: PreviewProvider {
                 price98: "2,065",
                 priceDiesel: "1,964",
                 brand: "Ballenoil",
-                address: "Dirección",
-                schedule: "Horario",
+                address: "C/ Miralrio 113, 3º 2",
+                schedule: "L-D 24h.",
                 coordinates: CLLocation(latitude: 40.42500000, longitude: -3.68300000),
                 showFavButton: true,
+                averageFillDeposit: 55,
                 isFav: false)
     .frame(height: 100, alignment: .center)
     .preferredColorScheme(.dark)

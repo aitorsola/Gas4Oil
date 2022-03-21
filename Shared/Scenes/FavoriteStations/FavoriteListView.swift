@@ -56,6 +56,7 @@ extension FavoriteListView {
                 schedule: station.horario,
                 coordinates: station.getCLLocationCoordinates(),
                 showFavButton: false,
+                averageFillDeposit: 0,
                 isFav: station.isFav)
   }
 }

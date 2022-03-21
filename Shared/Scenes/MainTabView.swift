@@ -9,6 +9,7 @@ import SwiftUI
 
 private enum TabSelectedType: Int {
   case stations
+  case vehicle
   case favorite
 }
 
@@ -30,7 +31,16 @@ struct MainTabView: View {
           .tabItem {
             VStack {
               Image(systemName: "fuelpump.fill")
-              Text("mainTab.stationsTabTitle".translated)
+//              Text("mainTab.stationsTabTitle".translated)
+            }
+          }
+
+        VehicleView()
+          .tag(TabSelectedType.vehicle.rawValue)
+          .tabItem {
+            VStack {
+              Image(systemName: "car.fill")
+//              Text("mainTab.vehicle".translated)
             }
           }
 
@@ -39,7 +49,7 @@ struct MainTabView: View {
           .tabItem {
             VStack {
               Image(systemName: "star.fill")
-              Text("mainTab.favTabTitle".translated)
+//              Text("mainTab.favTabTitle".translated)
             }
           }
           .onReceive(viewModel.listViewViewModel.$favorites, perform: { stations in

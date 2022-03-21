@@ -12,6 +12,7 @@ struct Gas4OilApp: App {
 
   var body: some Scene {
     WindowGroup {
+//      VehicleView()
       if Device.isiOS {
         MainTabView()
       } else {
