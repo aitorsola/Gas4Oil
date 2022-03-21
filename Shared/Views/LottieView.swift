@@ -8,7 +8,6 @@
 import SwiftUI
 import Lottie
 
-#if os(iOS)
 struct LottieView: UIViewRepresentable {
 
   var name: String
@@ -39,4 +38,3 @@ struct LottieView: UIViewRepresentable {
 
   }
 }
-#endif

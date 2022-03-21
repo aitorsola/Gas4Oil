@@ -58,7 +58,6 @@ struct StationsListView: View {
     } else if viewModel.isLoading {
 #if os(iOS)
       LottieView(name: "location", loopMode: .loop)
-
         .frame(width: 100, height: 100)
 #else
       ProgressView(title: "common.gettingLocation".translated)
@@ -78,7 +77,9 @@ struct StationsListView: View {
               Text(province.capitalized)
                 .searchCompletion(province.capitalized)
             }
-          }.onSubmit(of: .search) {
+          }
+          .onSubmit(of: .search) {
+            focused = false
             viewModel.showFuelByCity(queryString)
           }
 #if os(macOS)
@@ -143,6 +144,7 @@ struct StationsListView: View {
           .padding(.bottom, 10)
 #if os(macOS)
           .frame(minWidth: 350, idealWidth: 350, maxWidth: 350)
+          .ignoresSafeArea()
 #endif
         }
       }

@@ -31,7 +31,7 @@ struct MapView: View {
         #endif
       }
     }
-    .ignoresSafeArea(.all, edges: .top)
+    .ignoresSafeArea()
   }
 }
 
@@ -46,7 +46,6 @@ extension MapView {
     if UIApplication.shared.canOpenURL(url) {
       UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    
     #endif
   }
 }

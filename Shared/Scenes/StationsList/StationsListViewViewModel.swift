@@ -34,7 +34,7 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 10
+  private var kMaxLenght = 50
 
   let defaults: UserDefaults = UserDefaults.standard
 
@@ -344,10 +344,8 @@ extension StationsListViewViewModel {
     default:
       break
     }
-    let station1Coord = CLLocation(latitude: station1.latitude,
-                                   longitude: station1.longitude)
-    let station2Coord = CLLocation(latitude: station2.latitude,
-                                   longitude: station2.longitude)
+    let station1Coord = CLLocation(latitude: station1.latitude, longitude: station1.longitude)
+    let station2Coord = CLLocation(latitude: station2.latitude, longitude: station2.longitude)
     return station1Coord.distance(from: pointToCompare) < station2Coord.distance(from: pointToCompare)
   }
 

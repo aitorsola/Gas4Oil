@@ -50,9 +50,7 @@ struct MainTabView: View {
       .padding(.top, 10)
       .font(.headline)
     }
-    .alert("Developed by Aitor Sola using SwiftUI", isPresented: $showAlert) {
-      Button("Thanks") { }
-    } message: { }
+    .ignoresSafeArea()
   }
 }
 

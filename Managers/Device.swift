@@ -10,10 +10,10 @@ import Foundation
 struct Device {
 
   static var isiOS: Bool {
-    #if os(iOS)
+#if os(iOS)
     return  true
-    #else
+#else
     return false
-    #endif
+#endif
   }
 }
