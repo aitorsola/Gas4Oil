@@ -40,3 +40,6 @@
 "mainTab.stationsTabTitle" = "Stations";
 "mainTab.vehicle" = "My vehicle";
 
+"myVehicle.brand.placeholder" = "Brand";
+"myVehicle.model.placeholder" = "Model";
+"myVehicle.capacity.placeholder" = "Capacity";

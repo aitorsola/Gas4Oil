@@ -50,7 +50,7 @@ struct StationsListView: View {
         Text("landingView.title.discover".translated)
           .font(.customSize(20)).multilineTextAlignment(.center)
         Spacer()
-        Gas4OilButton(title: "landingView.button.requestLocationPermission".translated, image: nil) {
+        Gas4OilButton(title: "landingView.button.requestLocationPermission".translated, image: nil, isDisabled: false) {
           self.viewModel.requestLocation()
         }
         Spacer()
@@ -136,9 +136,9 @@ struct StationsListView: View {
             Spacer()
           }
 
-          Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location")) {
-            self.sortBrand = .all
-            self.sortType = .near95
+          Gas4OilButton(title: "listView.button.requestLocation".translated, image: Image(systemName: "location"), isDisabled: false) {
+            sortBrand = .all
+            sortType = .near95
             viewModel.requestLocation()
           }
           .padding(.bottom, 10)
@@ -171,16 +171,43 @@ extension View {
 extension StationsListView {
 
   private func getStationView(_ station: Station) -> StationView {
-    StationView(price95: station.gasolina95E5,
-                price98: station.gasolina98E5,
-                priceDiesel: station.gasoleoA,
-                brand: station.rotulo,
-                address: station.direccion,
-                schedule: station.horario,
-                coordinates: station.getCLLocationCoordinates(),
-                showFavButton: true,
-                averageFillDeposit: 0,
-                isFav: station.isFav) {
+    var fillPrice: Double? = nil
+    let vehicle = Vehicle.vehicleData
+    let formatter = NumberFormatter()
+    formatter.locale = Locale.current
+    formatter.numberStyle = .decimal
+    switch vehicle?.fuel {
+    case .diesel:
+      if let vehicle = vehicle {
+        let priceGasoleo = formatter.number(from: station.gasoleoA) ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
+        fillPrice = priceGasoleo.doubleValue * vehicleCapacity.doubleValue
+      }
+    case .gas95:
+      if let vehicle = vehicle {
+        let priceGasoleo = formatter.number(from: station.gasolina95E5) ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
+        fillPrice = priceGasoleo.doubleValue * vehicleCapacity.doubleValue
+      }
+    case .gas98:
+      if let vehicle = vehicle {
+        let priceGasoleo = formatter.number(from: station.gasolina98E5) ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
+        fillPrice = priceGasoleo.doubleValue * vehicleCapacity.doubleValue
+      }
+    default:
+      fillPrice = nil
+    }
+    return StationView(price95: station.gasolina95E5,
+                       price98: station.gasolina98E5,
+                       priceDiesel: station.gasoleoA,
+                       brand: station.rotulo,
+                       address: station.direccion,
+                       schedule: station.horario,
+                       coordinates: station.getCLLocationCoordinates(),
+                       showFavButton: true,
+                       fillPrice: fillPrice,
+                       isFav: station.isFav) {
       viewModel.favoriteStationTapAction(station)
     }
   }

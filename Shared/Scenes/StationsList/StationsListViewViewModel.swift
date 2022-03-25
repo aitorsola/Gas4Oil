@@ -34,7 +34,7 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 50
+  private var kMaxLenght = 5
 
   let defaults: UserDefaults = UserDefaults.standard
 
@@ -320,7 +320,8 @@ extension StationsListViewViewModel {
               case .brand(let brand):
                 return station.rotulo.contains(brand.uppercased())
               }
-            }.prefix(kMaxLenght))
+            }
+      .prefix(kMaxLenght))
     stations = newStations
   }
 

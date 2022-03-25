@@ -13,7 +13,7 @@ class Vehicle {
     getVehicleData()
   }
 
-  static func getVehicleData() -> VehicleData? {
+  private static func getVehicleData() -> VehicleData? {
     guard let data = UserDefaults.standard.data(forKey: "car-data") else {
       return nil
     }
@@ -25,6 +25,11 @@ class Vehicle {
       return
     }
     UserDefaults.standard.set(data, forKey: "car-data")
+    UserDefaults.standard.synchronize()
+  }
+
+  static func removeVehicleData() {
+    UserDefaults.standard.removeObject(forKey: "car-data")
     UserDefaults.standard.synchronize()
   }
 }

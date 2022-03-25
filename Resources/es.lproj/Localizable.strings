@@ -39,3 +39,7 @@
 "mainTab.favTabTitle" = "Favoritos";
 "mainTab.stationsTabTitle" = "Estaciones";
 "mainTab.vehicle" = "Mi vehículo";
+
+"myVehicle.brand.placeholder" = "Marca";
+"myVehicle.model.placeholder" = "Modelo";
+"myVehicle.capacity.placeholder" = "Capacidad del depósito";

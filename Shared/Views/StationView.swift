@@ -27,8 +27,7 @@ struct StationView: View {
   let schedule: String
   let coordinates: CLLocation
   let showFavButton: Bool
-
-  var averageFillDeposit: Int
+  let fillPrice: Double?
 
   @State var isFav: Bool
   @State var makeBig: Bool = false
@@ -82,7 +81,7 @@ struct StationView: View {
       Spacer()
       Text(address.capitalized)
       Spacer()
-      Text("")
+      Text("Fill price: \(fillPrice ?? 0)")
       Spacer()
       HStack(alignment: .bottom) {
         Text("station.schedule".translated + ": " + schedule.capitalized)
@@ -188,7 +187,7 @@ struct StationView_Previews: PreviewProvider {
                 schedule: "L-D 24h.",
                 coordinates: CLLocation(latitude: 40.42500000, longitude: -3.68300000),
                 showFavButton: true,
-                averageFillDeposit: 55,
+                fillPrice: 80,
                 isFav: false)
     .frame(height: 100, alignment: .center)
     .preferredColorScheme(.dark)

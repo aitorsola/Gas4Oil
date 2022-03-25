@@ -11,6 +11,7 @@ struct Gas4OilButton: View {
 
   let title: String
   let image: Image?
+  var isDisabled: Bool
   let completion: (() -> Void)?
 
   @State var needsRotate: Bool = false
@@ -25,12 +26,13 @@ struct Gas4OilButton: View {
       }
       Text(title.uppercased())
         .multilineTextAlignment(.center)
-        .foregroundColor(.orange)
+        .foregroundColor(isDisabled ? .gray : .orange)
         .font(.system(size: 20, weight: .medium, design: .default))
         .font(.customSize(20, weight: .medium, design: .rounded))
     }
+    .disabled(isDisabled)
     .padding(10)
-    .overlay(RoundedRectangle(cornerRadius: 5).stroke(.orange, lineWidth: 2))
+    .overlay(RoundedRectangle(cornerRadius: 5).stroke(isDisabled ? .gray : .orange, lineWidth: 2))
     .onTapGesture {
       withAnimation(.easeInOut(duration: 1)) {
        needsRotate.toggle()
@@ -42,6 +44,6 @@ struct Gas4OilButton: View {
 
 struct Gas4OilButton_Previews: PreviewProvider {
   static var previews: some View {
-    Gas4OilButton(title: "Hola", image: Image(systemName: "location"), completion: nil)
+    Gas4OilButton(title: "Hola", image: Image(systemName: "location"), isDisabled: false, completion: nil)
   }
 }
