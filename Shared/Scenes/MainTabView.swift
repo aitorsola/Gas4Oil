@@ -31,7 +31,9 @@ struct MainTabView: View {
           .tabItem {
             VStack {
               Image(systemName: "fuelpump.fill")
-//              Text("mainTab.stationsTabTitle".translated)
+#if os(macOS)
+              Text("mainTab.stationsTabTitle".translated)
+#endif
             }
           }
 
@@ -40,16 +42,23 @@ struct MainTabView: View {
           .tabItem {
             VStack {
               Image(systemName: "car.fill")
-//              Text("mainTab.vehicle".translated)
+#if os(macOS)
+              Text("mainTab.vehicle".translated)
+#endif
             }
           }
+#if os(macOS)
+          .frame(width: 500)
+#endif
 
         FavoriteListView(viewModel: viewModel.favoriteViewViewModel)
           .tag(TabSelectedType.favorite.rawValue)
           .tabItem {
             VStack {
               Image(systemName: "star.fill")
-//              Text("mainTab.favTabTitle".translated)
+#if os(macOS)
+              Text("mainTab.favTabTitle".translated)
+#endif
             }
           }
           .onReceive(viewModel.listViewViewModel.$favorites, perform: { stations in
@@ -60,7 +69,9 @@ struct MainTabView: View {
       .padding(.top, 10)
       .font(.headline)
     }
+#if os(iOS)
     .ignoresSafeArea()
+#endif
   }
 }
 

@@ -34,7 +34,7 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 5
+  private var kMaxLenght = 50
 
   let defaults: UserDefaults = UserDefaults.standard
 

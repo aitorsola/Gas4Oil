@@ -171,32 +171,28 @@ extension View {
 extension StationsListView {
 
   private func getStationView(_ station: Station) -> StationView {
-    var fillPrice: Double? = nil
+    var fillPrice: Double?
     let vehicle = Vehicle.vehicleData
     let formatter = NumberFormatter()
     formatter.locale = Locale.current
     formatter.numberStyle = .decimal
-    switch vehicle?.fuel {
-    case .diesel:
-      if let vehicle = vehicle {
-        let priceGasoleo = formatter.number(from: station.gasoleoA) ?? 0
+    formatter.decimalSeparator = ","
+    formatter.groupingSeparator = ""
+    if let vehicle = vehicle {
+      switch vehicle.fuel {
+      case .gas95:
+        let fuelPrice = formatter.number(from: station.gasolina95E5)?.doubleValue ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity)?.doubleValue ?? 0
+        fillPrice = (fuelPrice * vehicleCapacity)
+      case .gas98:
+        let fuelPrice = formatter.number(from: station.gasolina98E5) ?? 0
         let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
-        fillPrice = priceGasoleo.doubleValue * vehicleCapacity.doubleValue
-      }
-    case .gas95:
-      if let vehicle = vehicle {
-        let priceGasoleo = formatter.number(from: station.gasolina95E5) ?? 0
+        fillPrice = fuelPrice.doubleValue * vehicleCapacity.doubleValue
+      case .diesel:
+        let fuelPrice = formatter.number(from: station.gasoleoA) ?? 0
         let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
-        fillPrice = priceGasoleo.doubleValue * vehicleCapacity.doubleValue
+        fillPrice = fuelPrice.doubleValue * vehicleCapacity.doubleValue
       }
-    case .gas98:
-      if let vehicle = vehicle {
-        let priceGasoleo = formatter.number(from: station.gasolina98E5) ?? 0
-        let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
-        fillPrice = priceGasoleo.doubleValue * vehicleCapacity.doubleValue
-      }
-    default:
-      fillPrice = nil
     }
     return StationView(price95: station.gasolina95E5,
                        price98: station.gasolina98E5,

@@ -81,8 +81,15 @@ struct StationView: View {
       Spacer()
       Text(address.capitalized)
       Spacer()
-      Text("Fill price: \(fillPrice ?? 0)")
-      Spacer()
+      if let fillPrice = fillPrice, !fillPrice.isZero {
+        HStack(spacing: 8) {
+          Text("station.fillPrice".translated)
+          Text(String(format: "%.2f", fillPrice) + "€")
+            .foregroundColor(fillPrice < 100 ? .green : .red)
+            .font(.customSize(20, weight: .bold, design: .monospaced))
+        }
+        Spacer()
+      }
       HStack(alignment: .bottom) {
         Text("station.schedule".translated + ": " + schedule.capitalized)
         Spacer()

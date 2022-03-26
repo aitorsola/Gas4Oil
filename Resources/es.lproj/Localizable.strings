@@ -8,8 +8,10 @@
 
 "common.loading" = "Cargando";
 "common.gettingLocation" = "Obteniendo ubicación";
+"common.fuelType" = "Combustible";
 
 "station.schedule" = "Horario";
+"station.fillPrice" = "Precio del depósito:";
 
 "landingView.title.discover" = "Encuentra estaciones de servicio y obtén su precio actualizado";
 "landingView.button.requestLocationPermission" = "Solicitar permiso de localización";
@@ -40,6 +42,10 @@
 "mainTab.stationsTabTitle" = "Estaciones";
 "mainTab.vehicle" = "Mi vehículo";
 
+"myVehicle.brand.title" = "Mi vehiculo";
+"myVehicle.saved.message" = "Guardado satisfactoriamente";
 "myVehicle.brand.placeholder" = "Marca";
 "myVehicle.model.placeholder" = "Modelo";
 "myVehicle.capacity.placeholder" = "Capacidad del depósito";
+"myVehicle.save" = "Guardar";
+"myVehicle.remove" = "Eliminar";

@@ -48,7 +48,30 @@ struct FavoriteListView: View {
 extension FavoriteListView {
 
   private func getStationView(_ station: Station) -> StationView {
-    StationView(price95: station.gasolina95E5,
+    var fillPrice: Double?
+    let vehicle = Vehicle.vehicleData
+    let formatter = NumberFormatter()
+    formatter.locale = Locale.current
+    formatter.numberStyle = .decimal
+    formatter.decimalSeparator = ","
+    formatter.groupingSeparator = ""
+    if let vehicle = vehicle {
+      switch vehicle.fuel {
+      case .gas95:
+        let fuelPrice = formatter.number(from: station.gasolina95E5)?.doubleValue ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity)?.doubleValue ?? 0
+        fillPrice = (fuelPrice * vehicleCapacity)
+      case .gas98:
+        let fuelPrice = formatter.number(from: station.gasolina98E5) ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
+        fillPrice = fuelPrice.doubleValue * vehicleCapacity.doubleValue
+      case .diesel:
+        let fuelPrice = formatter.number(from: station.gasoleoA) ?? 0
+        let vehicleCapacity = formatter.number(from: vehicle.capacity) ?? 0
+        fillPrice = fuelPrice.doubleValue * vehicleCapacity.doubleValue
+      }
+    }
+    return StationView(price95: station.gasolina95E5,
                 price98: station.gasolina98E5,
                 priceDiesel: station.gasoleoA,
                 brand: station.rotulo,
@@ -56,7 +79,7 @@ extension FavoriteListView {
                 schedule: station.horario,
                 coordinates: station.getCLLocationCoordinates(),
                 showFavButton: false,
-                fillPrice: 80,
+                fillPrice: fillPrice,
                 isFav: station.isFav)
   }
 }
