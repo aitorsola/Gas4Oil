@@ -7,20 +7,20 @@
 
 import Foundation
 
-class Vehicle {
+class VehicleFavorite {
 
-  static var vehicleData: VehicleData? {
+  static var vehicleData: VehicleStored? {
     getVehicleData()
   }
 
-  private static func getVehicleData() -> VehicleData? {
+  private static func getVehicleData() -> VehicleStored? {
     guard let data = UserDefaults.standard.data(forKey: "car-data") else {
       return nil
     }
-    return try? JSONDecoder().decode(VehicleData.self, from: data)
+    return try? JSONDecoder().decode(VehicleStored.self, from: data)
   }
 
-  static func saveVehicleData(data: VehicleData) {
+  static func saveVehicleData(data: VehicleStored) {
     guard let data = try? JSONEncoder().encode(data) else {
       return
     }

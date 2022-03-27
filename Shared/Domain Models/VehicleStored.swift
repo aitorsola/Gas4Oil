@@ -1,5 +1,5 @@
 //
-//  VehicleEntity.swift
+//  VehicleStored.swift
 //  Gas4Oil
 //
 //  Created by Aitor Sola on 25/3/22.
@@ -13,14 +13,14 @@ enum FuelType: Codable, CaseIterable {
   case diesel
 }
 
-struct VehicleData: Codable {
+struct VehicleStored: Codable {
   var brand: String
   var model: String
   var capacity: String
   var fuel: FuelType
 
   func isEmpty() -> Bool {
-    return brand.isEmpty || model.isEmpty || capacity.isEmpty
+    brand.isEmpty || model.isEmpty || capacity.isEmpty
   }
 
   mutating func reset() {

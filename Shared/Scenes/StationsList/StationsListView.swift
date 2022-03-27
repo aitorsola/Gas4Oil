@@ -160,19 +160,11 @@ struct StationsListView: View {
   }
 }
 
-#if canImport(UIKit)
-extension View {
-  func hideKeyboard() {
-    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-  }
-}
-#endif
-
 extension StationsListView {
 
   private func getStationView(_ station: Station) -> StationView {
     var fillPrice: Double?
-    let vehicle = Vehicle.vehicleData
+    let vehicle = VehicleFavorite.vehicleData
     let formatter = NumberFormatter()
     formatter.locale = Locale.current
     formatter.numberStyle = .decimal

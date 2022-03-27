@@ -32,8 +32,6 @@
 		A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444767D27D17A5D00B25303 /* ProgressView.swift */; };
 		A444768427D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
 		A444768527D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
-		A446576927EE2B00007AE82B /* VehicleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446576827EE2B00007AE82B /* VehicleEntity.swift */; };
-		A446576A27EE2B00007AE82B /* VehicleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446576827EE2B00007AE82B /* VehicleEntity.swift */; };
 		A45D27A427E8E0F800C724D6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A45D27A327E8E0F800C724D6 /* Lottie */; };
 		A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
@@ -59,8 +57,8 @@
 		A487AB8427E8A6250085385E /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8227E8A6250085385E /* VehicleView.swift */; };
 		A487AB8627E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8527E8B2FF0085385E /* VehicleViewViewModel.swift */; };
 		A487AB8727E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8527E8B2FF0085385E /* VehicleViewViewModel.swift */; };
-		A487AB8927E8B8530085385E /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8827E8B8530085385E /* VehicleData.swift */; };
-		A487AB8A27E8B8530085385E /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8827E8B8530085385E /* VehicleData.swift */; };
+		A487AB8927E8B8530085385E /* VehicleDataStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8827E8B8530085385E /* VehicleDataStored.swift */; };
+		A487AB8A27E8B8530085385E /* VehicleDataStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8827E8B8530085385E /* VehicleDataStored.swift */; };
 		A48F4AA627D2133F0024473D /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA527D2133F0024473D /* StationsModels.swift */; };
 		A48F4AA727D2133F0024473D /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA527D2133F0024473D /* StationsModels.swift */; };
 		A48F4AA927D218E80024473D /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA827D218E80024473D /* DomainConvertible.swift */; };
@@ -79,6 +77,16 @@
 		A48F4ABD27D4DEA10024473D /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4ABB27D4DEA10024473D /* StationView.swift */; };
 		A497C4F827D74C85009E1CC6 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497C4F727D74C85009E1CC6 /* Double.swift */; };
 		A497C4F927D74C85009E1CC6 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497C4F727D74C85009E1CC6 /* Double.swift */; };
+		A4A2F8F127F0692000AC92E8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F027F0692000AC92E8 /* View.swift */; };
+		A4A2F8F227F06DA000AC92E8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F027F0692000AC92E8 /* View.swift */; };
+		A4A2F8F427F06F8500AC92E8 /* VehicleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F327F06F8500AC92E8 /* VehicleEngine.swift */; };
+		A4A2F8F527F06F8500AC92E8 /* VehicleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F327F06F8500AC92E8 /* VehicleEngine.swift */; };
+		A4A2F8F727F073DA00AC92E8 /* VehicleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F627F073DA00AC92E8 /* VehicleModels.swift */; };
+		A4A2F8F827F073DA00AC92E8 /* VehicleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F627F073DA00AC92E8 /* VehicleModels.swift */; };
+		A4A2F8FA27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F927F0755F00AC92E8 /* VehicleBrandEntity.swift */; };
+		A4A2F8FB27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F927F0755F00AC92E8 /* VehicleBrandEntity.swift */; };
+		A4E70BB227F07AF30097CBF2 /* VehicleStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */; };
+		A4E70BB327F07AF30097CBF2 /* VehicleStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,7 +120,6 @@
 		A444767827D143C500B25303 /* gas_station.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gas_station.json; sourceTree = "<group>"; };
 		A444767D27D17A5D00B25303 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		A444768327D1887A00B25303 /* StationsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsEngine.swift; sourceTree = "<group>"; };
-		A446576827EE2B00007AE82B /* VehicleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleEntity.swift; sourceTree = "<group>"; };
 		A44AF40627DA014B008213B7 /* Gas4Oil--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Gas4Oil--iOS--Info.plist"; sourceTree = "<group>"; };
 		A4727BF427D519740005736F /* Gas4OilButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4OilButton.swift; sourceTree = "<group>"; };
 		A4727BF727D528AF0005736F /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
@@ -128,7 +135,7 @@
 		A487AB8027E8A4780085385E /* Gas4Oil--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Gas4Oil--macOS--Info.plist"; sourceTree = "<group>"; };
 		A487AB8227E8A6250085385E /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		A487AB8527E8B2FF0085385E /* VehicleViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewViewModel.swift; sourceTree = "<group>"; };
-		A487AB8827E8B8530085385E /* VehicleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleData.swift; sourceTree = "<group>"; };
+		A487AB8827E8B8530085385E /* VehicleDataStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataStored.swift; sourceTree = "<group>"; };
 		A48F4AA527D2133F0024473D /* StationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsModels.swift; sourceTree = "<group>"; };
 		A48F4AA827D218E80024473D /* DomainConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertible.swift; sourceTree = "<group>"; };
 		A48F4AAB27D219270024473D /* Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stations.swift; sourceTree = "<group>"; };
@@ -138,8 +145,13 @@
 		A48F4AB727D4B7E90024473D /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		A48F4ABB27D4DEA10024473D /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		A497C4F727D74C85009E1CC6 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		A4A2F8F027F0692000AC92E8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		A4A2F8F327F06F8500AC92E8 /* VehicleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleEngine.swift; sourceTree = "<group>"; };
+		A4A2F8F627F073DA00AC92E8 /* VehicleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleModels.swift; sourceTree = "<group>"; };
+		A4A2F8F927F0755F00AC92E8 /* VehicleBrandEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleBrandEntity.swift; sourceTree = "<group>"; };
 		A4D40C1627DE98A3003FBE8F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A4D40C1827DE98A3003FBE8F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStored.swift; sourceTree = "<group>"; };
 		C943B049A046AECA493B95BF /* Pods_Gas4Oil__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas4Oil__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,7 +234,7 @@
 			children = (
 				A444766C27D13A4800B25303 /* Parser.swift */,
 				A406706227D8BE5E00193D36 /* FavoriteStations.swift */,
-				A487AB8827E8B8530085385E /* VehicleData.swift */,
+				A487AB8827E8B8530085385E /* VehicleDataStored.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,7 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				A48F4AAB27D219270024473D /* Stations.swift */,
-				A446576827EE2B00007AE82B /* VehicleEntity.swift */,
+				A4A2F8F927F0755F00AC92E8 /* VehicleBrandEntity.swift */,
+				A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */,
 			);
 			path = "Domain Models";
 			sourceTree = "<group>";
@@ -267,6 +280,7 @@
 				A4727BF727D528AF0005736F /* Sequence.swift */,
 				A497C4F727D74C85009E1CC6 /* Double.swift */,
 				A478913F27D922F4001CA76E /* String.swift */,
+				A4A2F8F027F0692000AC92E8 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				A444768327D1887A00B25303 /* StationsEngine.swift */,
+				A4A2F8F327F06F8500AC92E8 /* VehicleEngine.swift */,
 			);
 			path = "Network+Stations";
 			sourceTree = "<group>";
@@ -349,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				A48F4AA527D2133F0024473D /* StationsModels.swift */,
+				A4A2F8F627F073DA00AC92E8 /* VehicleModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -489,19 +505,23 @@
 				A487AB8327E8A6250085385E /* VehicleView.swift in Sources */,
 				A444766E27D13A8300B25303 /* Font.swift in Sources */,
 				A48F4AAF27D4B18D0024473D /* StationsListView.swift in Sources */,
+				A4E70BB227F07AF30097CBF2 /* VehicleStored.swift in Sources */,
+				A4A2F8F127F0692000AC92E8 /* View.swift in Sources */,
 				A444767427D13A8E00B25303 /* Network.swift in Sources */,
 				A48581CC27DB3FE700864885 /* FavoriteListViewViewModel.swift in Sources */,
 				A48F4AAC27D219270024473D /* Stations.swift in Sources */,
 				A487AB8627E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */,
 				A48581C927DB3E6000864885 /* MainTabViewViewModel.swift in Sources */,
 				A48F4AB527D4B4B60024473D /* Managers.swift in Sources */,
-				A487AB8927E8B8530085385E /* VehicleData.swift in Sources */,
+				A4A2F8F427F06F8500AC92E8 /* VehicleEngine.swift in Sources */,
+				A4A2F8FA27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */,
+				A487AB8927E8B8530085385E /* VehicleDataStored.swift in Sources */,
 				A444767227D13A8A00B25303 /* LocationManager.swift in Sources */,
-				A446576927EE2B00007AE82B /* VehicleEntity.swift in Sources */,
 				A48F4ABC27D4DEA10024473D /* StationView.swift in Sources */,
 				A48F4AB827D4B7E90024473D /* Device.swift in Sources */,
 				A4727BFF27D57D5F0005736F /* MapViewViewModel.swift in Sources */,
 				A416FCA427E663C200FCC16A /* LottieView.swift in Sources */,
+				A4A2F8F727F073DA00AC92E8 /* VehicleModels.swift in Sources */,
 				A497C4F827D74C85009E1CC6 /* Double.swift in Sources */,
 				A48581C627DAC54100864885 /* FavoriteListView.swift in Sources */,
 				A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */,
@@ -525,9 +545,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A2F8F227F06DA000AC92E8 /* View.swift in Sources */,
 				A487AB8727E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */,
 				A444766F27D13A8300B25303 /* Font.swift in Sources */,
 				A48F4AB027D4B18D0024473D /* StationsListView.swift in Sources */,
+				A4E70BB327F07AF30097CBF2 /* VehicleStored.swift in Sources */,
 				A444767527D13A8E00B25303 /* Network.swift in Sources */,
 				A48581CD27DB3FE700864885 /* FavoriteListViewViewModel.swift in Sources */,
 				A48F4AAD27D219270024473D /* Stations.swift in Sources */,
@@ -535,12 +557,12 @@
 				A48F4AB627D4B4B60024473D /* Managers.swift in Sources */,
 				A444767327D13A8B00B25303 /* LocationManager.swift in Sources */,
 				A48F4ABD27D4DEA10024473D /* StationView.swift in Sources */,
-				A446576A27EE2B00007AE82B /* VehicleEntity.swift in Sources */,
 				A48F4AB927D4B7E90024473D /* Device.swift in Sources */,
 				A4727C0027D57D5F0005736F /* MapViewViewModel.swift in Sources */,
 				A497C4F927D74C85009E1CC6 /* Double.swift in Sources */,
 				A48581C727DAC54100864885 /* FavoriteListView.swift in Sources */,
-				A487AB8A27E8B8530085385E /* VehicleData.swift in Sources */,
+				A487AB8A27E8B8530085385E /* VehicleDataStored.swift in Sources */,
+				A4A2F8FB27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */,
 				A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */,
 				A48F4AAA27D218E80024473D /* DomainConvertible.swift in Sources */,
 				A487AB8427E8A6250085385E /* VehicleView.swift in Sources */,
@@ -548,7 +570,9 @@
 				A478914127D922F4001CA76E /* String.swift in Sources */,
 				A444767127D13A8700B25303 /* Parser.swift in Sources */,
 				A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */,
+				A4A2F8F827F073DA00AC92E8 /* VehicleModels.swift in Sources */,
 				A48F4AA727D2133F0024473D /* StationsModels.swift in Sources */,
+				A4A2F8F527F06F8500AC92E8 /* VehicleEngine.swift in Sources */,
 				A444768527D1887A00B25303 /* StationsEngine.swift in Sources */,
 				A406706E27D90F8D00193D36 /* MainTabView.swift in Sources */,
 				A4727BF927D528AF0005736F /* Sequence.swift in Sources */,

@@ -11,14 +11,21 @@ class VehicleViewViewModel: ObservableObject {
 
   // MARK: - Properties
 
-  @Published var vehicleData: VehicleData = VehicleData(brand: "", model: "", capacity: "", fuel: .gas95)
+  @Published var vehicleData: VehicleStored = VehicleStored(brand: "", model: "", capacity: "", fuel: .gas95)
   @Published var showSuccessAlert: Bool = false
   @Published var allFuelTypes = FuelType.allCases
+
+  @Published var allBrands = [VehicleBrandEntity]()
+  @Published var allModelsForBrand = [String]()
+
+  @Published var selectedBrand: String?
+
+  private var vehicleAPI: VehicleAPI = Network()
 
   // MARK: - Public
 
   func getVehicleData() {
-    guard let vehicleData = Vehicle.vehicleData else {
+    guard let vehicleData = VehicleFavorite.vehicleData else {
       return
     }
     self.vehicleData = vehicleData
@@ -29,12 +36,32 @@ class VehicleViewViewModel: ObservableObject {
       return
     }
     showSuccessAlert = true
-    Vehicle.saveVehicleData(data: vehicleData)
+    VehicleFavorite.saveVehicleData(data: vehicleData)
   }
 
   func removeVehicle() {
-    Vehicle.removeVehicleData()
+    VehicleFavorite.removeVehicleData()
     vehicleData.reset()
+  }
+
+  func getAllBrands() {
+    vehicleAPI.getBrands { result in
+      switch result {
+      case .success(let brands):
+        DispatchQueue.main.async {
+          self.allBrands = brands
+          self.selectedBrand = brands.first?.brand
+        }
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
+    }
+  }
+
+  func getModelByBrand() {
+    vehicleAPI.getModelByBrand { result in
+
+    }
   }
 }
 

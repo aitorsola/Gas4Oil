@@ -49,7 +49,7 @@ extension FavoriteListView {
 
   private func getStationView(_ station: Station) -> StationView {
     var fillPrice: Double?
-    let vehicle = Vehicle.vehicleData
+    let vehicle = VehicleFavorite.vehicleData
     let formatter = NumberFormatter()
     formatter.locale = Locale.current
     formatter.numberStyle = .decimal
