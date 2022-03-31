@@ -16,7 +16,7 @@ class VehicleViewViewModel: ObservableObject {
   @Published var allFuelTypes = FuelType.allCases
 
   @Published var allBrands = [VehicleBrandEntity]()
-  @Published var allModelsForBrand = [String]()
+  @Published var allModelsForBrand = [VehicleModelEntity]()
 
   @Published var selectedBrand: String?
 
@@ -58,9 +58,16 @@ class VehicleViewViewModel: ObservableObject {
     }
   }
 
-  func getModelByBrand() {
-    vehicleAPI.getModelByBrand { result in
-
+  func getModelsForBrandIndex(_ index: Int) {
+    let brand = allBrands[index]
+    print(brand)
+    vehicleAPI.getModelByBrand(brandId: brand.id) { result in
+      switch result {
+      case .success(let models):
+        self.allModelsForBrand = models
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
     }
   }
 }

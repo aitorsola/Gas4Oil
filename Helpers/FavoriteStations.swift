@@ -63,6 +63,23 @@ class FavoriteStations {
     allFavorites.contains(where: { $0.id == stationId })
   }
 
+  static func updateFavorite(_ station: Station) {
+    let decoder = JSONDecoder()
+    guard let data = defaults.object(forKey: "favs") as? Data,
+          var stations = try? decoder.decode([Station].self, from: data) else {
+      return
+    }
+    for i in 0..<stations.count {
+      if stations[i].id == station.id {
+        stations[i] = station
+      }
+    }
+    allFavorites = stations
+    let encoder = JSONEncoder()
+    let stationsData = try? encoder.encode(stations)
+    defaults.set(stationsData, forKey: "favs")
+  }
+
   static func getAllFavorites() -> [Station] {
     if let object = defaults.object(forKey: "favs") as? Data {
       let decoder = JSONDecoder()

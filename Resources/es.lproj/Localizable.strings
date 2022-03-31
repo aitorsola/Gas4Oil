@@ -42,7 +42,7 @@
 "mainTab.stationsTabTitle" = "Estaciones";
 "mainTab.vehicle" = "Mi vehículo";
 
-"myVehicle.brand.title" = "Mi vehiculo";
+"myVehicle.brand.title" = "Mi vehículo";
 "myVehicle.saved.message" = "Guardado satisfactoriamente";
 "myVehicle.brand.placeholder" = "Marca";
 "myVehicle.model.placeholder" = "Modelo";

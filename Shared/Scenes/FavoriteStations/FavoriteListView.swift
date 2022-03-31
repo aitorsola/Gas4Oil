@@ -39,9 +39,6 @@ struct FavoriteListView: View {
         .navigationTitle("Favorite Stations")
       }
     }
-    .onAppear {
-      viewModel.getFavorites()
-    }
   }
 }
 

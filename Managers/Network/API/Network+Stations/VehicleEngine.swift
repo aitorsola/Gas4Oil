@@ -10,7 +10,7 @@ import Foundation
 protocol VehicleAPI {
   func getVehicleTypes()
   func getBrands(completion: @escaping (Result<[VehicleBrandEntity], G4OError>) -> Void)
-  func getModelByBrand(completion: @escaping (Result<[VehicleBrand], G4OError>) -> Void)
+  func getModelByBrand(brandId: Int, completion: @escaping (Result<[VehicleModelEntity], G4OError>) -> Void)
 }
 
 private enum VehicleEndpoints {
@@ -42,7 +42,21 @@ extension Network: VehicleAPI {
     }
   }
 
-  func getModelByBrand(completion: @escaping (Result<[VehicleBrand], G4OError>) -> Void) {
-
+  func getModelByBrand(brandId: Int, completion: @escaping (Result<[VehicleModelEntity], G4OError>) -> Void) {
+    let url = VehicleEndpoints.modelByBrand.replacingOccurrences(of: "{brand_id}", with: String(brandId))
+    let request = Request(url: url, method: .get)
+    perform(request) { result in
+      switch result {
+      case .success(let data):
+        print(data)
+        guard let entity = Parser.parse(data, entity: [VehicleModel].self) else {
+          completion(.failure(.parseProblems))
+          return
+        }
+        completion(.success(entity))
+      case .failure(let error):
+        completion(.failure(error))
+      }
+    }
   }
 }

@@ -13,11 +13,10 @@ class FavoriteListViewViewModel: ObservableObject {
 
   // MARK: - Public
 
-  func getFavorites() {
-    favoriteStations = FavoriteStations.getAllFavorites()
-  }
-
   func updateFavoriteStations(allStations: [Station]) {
     favoriteStations = allStations
+    allStations.forEach { station in
+      FavoriteStations.updateFavorite(station)
+    }
   }
 }

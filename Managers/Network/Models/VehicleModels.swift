@@ -17,3 +17,15 @@ struct VehicleBrand: Decodable, DomainConvertible {
     VehicleBrandEntity(id: id, brand: brand)
   }
 }
+
+struct VehicleModel: Decodable, DomainConvertible {
+  typealias DomainEntityType = VehicleModelEntity
+
+  let id: Int
+  let model: String
+  let brand: VehicleBrand
+
+  func domainEntity() -> VehicleModelEntity? {
+    VehicleModelEntity(id: id, model: model, brand: brand.domainEntity())
+  }
+}

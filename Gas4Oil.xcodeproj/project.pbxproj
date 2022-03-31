@@ -47,6 +47,8 @@
 		A478913B27D9217D001CA76E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A478913D27D9217D001CA76E /* Localizable.strings */; };
 		A478914027D922F4001CA76E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478913F27D922F4001CA76E /* String.swift */; };
 		A478914127D922F4001CA76E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A478913F27D922F4001CA76E /* String.swift */; };
+		A47A84AD27F5AB2700AF2892 /* VehicleModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A84AC27F5AB2700AF2892 /* VehicleModelEntity.swift */; };
+		A47A84AE27F5AB2700AF2892 /* VehicleModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A84AC27F5AB2700AF2892 /* VehicleModelEntity.swift */; };
 		A48581C627DAC54100864885 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48581C527DAC54100864885 /* FavoriteListView.swift */; };
 		A48581C727DAC54100864885 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48581C527DAC54100864885 /* FavoriteListView.swift */; };
 		A48581C927DB3E6000864885 /* MainTabViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48581C827DB3E6000864885 /* MainTabViewViewModel.swift */; };
@@ -129,6 +131,7 @@
 		A478913C27D9217D001CA76E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A478913E27D92180001CA76E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A478913F27D922F4001CA76E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A47A84AC27F5AB2700AF2892 /* VehicleModelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleModelEntity.swift; sourceTree = "<group>"; };
 		A48581C527DAC54100864885 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		A48581C827DB3E6000864885 /* MainTabViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewViewModel.swift; sourceTree = "<group>"; };
 		A48581CB27DB3FE700864885 /* FavoriteListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewViewModel.swift; sourceTree = "<group>"; };
@@ -245,6 +248,7 @@
 				A48F4AAB27D219270024473D /* Stations.swift */,
 				A4A2F8F927F0755F00AC92E8 /* VehicleBrandEntity.swift */,
 				A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */,
+				A47A84AC27F5AB2700AF2892 /* VehicleModelEntity.swift */,
 			);
 			path = "Domain Models";
 			sourceTree = "<group>";
@@ -537,6 +541,7 @@
 				A4727BFC27D57D4B0005736F /* MapView.swift in Sources */,
 				A444764F27D12DB600B25303 /* Gas4OilApp.swift in Sources */,
 				A406706327D8BE5F00193D36 /* FavoriteStations.swift in Sources */,
+				A47A84AD27F5AB2700AF2892 /* VehicleModelEntity.swift in Sources */,
 				A48F4AB227D4B1CF0024473D /* StationsListViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A2F8F227F06DA000AC92E8 /* View.swift in Sources */,
+				A47A84AE27F5AB2700AF2892 /* VehicleModelEntity.swift in Sources */,
 				A487AB8727E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */,
 				A444766F27D13A8300B25303 /* Font.swift in Sources */,
 				A48F4AB027D4B18D0024473D /* StationsListView.swift in Sources */,
