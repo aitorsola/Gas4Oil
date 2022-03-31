@@ -52,6 +52,9 @@ class VehicleViewViewModel: ObservableObject {
 
   func removeVehicle() {
     VehicleFavorite.removeVehicleData()
+
+    selectedBrandIndex = 0
+    selectedModelIndex = 0
     vehicleData.reset()
   }
 

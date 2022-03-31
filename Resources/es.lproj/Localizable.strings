@@ -38,6 +38,6 @@
 "myVehicle.saved.message" = "Guardado satisfactoriamente";
 "myVehicle.brand.placeholder" = "Marca";
 "myVehicle.model.placeholder" = "Modelo";
-"myVehicle.capacity.placeholder" = "Capacidad del depósito";
+"myVehicle.capacity.placeholder" = "Capacidad del depósito (L.)";
 "myVehicle.save" = "Guardar";
 "myVehicle.remove" = "Eliminar";

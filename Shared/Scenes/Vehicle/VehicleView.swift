@@ -67,9 +67,11 @@ struct VehicleView: View {
         }
         .padding(.bottom, 20)
 
-        TextField("myVehicle.capacity.placeholder".translated, text: $viewModel.vehicleData.capacity)
-          .keyboardType(.numberPad)
-          .focused($capacityFocused)
+        TextField("",
+                  text: $viewModel.vehicleData.capacity,
+                  prompt: Text("myVehicle.capacity.placeholder".translated))
+        .keyboardType(.numberPad)
+        .focused($capacityFocused)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
 

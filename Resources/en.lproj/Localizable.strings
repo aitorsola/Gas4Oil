@@ -38,6 +38,6 @@
 "myVehicle.saved.message" = "Saved successfully";
 "myVehicle.brand.placeholder" = "Brand";
 "myVehicle.model.placeholder" = "Model";
-"myVehicle.capacity.placeholder" = "Capacity";
+"myVehicle.capacity.placeholder" = "Capacity (L)";
 "myVehicle.save" = "Save";
 "myVehicle.remove" = "Remove";

@@ -11,16 +11,16 @@ struct StationsResponse: Decodable, DomainConvertible {
   typealias DomainEntityType = Stations
 
   func domainEntity() -> Stations? {
-    let stations = listaEESSPrecio.compactMap({$0.domainEntity()})
+    let stations = prices.compactMap({$0.domainEntity()})
     return Stations(stations: stations)
   }
 
-  let fecha: String
-  let listaEESSPrecio: [ListaEESSPrecio]
+  let date: String
+  let prices: [ListaEESSPrecio]
 
   enum CodingKeys: String, CodingKey {
-    case fecha = "Fecha"
-    case listaEESSPrecio = "ListaEESSPrecio"
+    case date = "Fecha"
+    case prices = "ListaEESSPrecio"
   }
 
   struct ListaEESSPrecio: Decodable, DomainConvertible {

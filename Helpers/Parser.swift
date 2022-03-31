@@ -14,7 +14,7 @@ struct Parser {
     let decoder = JSONDecoder()
     var returnValue: T?
     do {
-      let data = (data.isEmpty) ? try JSONSerialization.data(withJSONObject: [:]) : data
+      let data = data.isEmpty ? try JSONSerialization.data(withJSONObject: [:]) : data
       returnValue = try decoder.decode(entityType, from: data)
     } catch {
       if let derror = error as? DecodingError {
@@ -25,12 +25,11 @@ struct Parser {
   }
   
   static func parse<T: Decodable & DomainConvertible>(_ data: Data, entity: T.Type) -> T.DomainEntityType? {
-    let entity = mainParse(data: data, entityType: entity)
-    return entity?.domainEntity()
+    mainParse(data: data, entityType: entity)?.domainEntity()
   }
 
   static func parse<T: Decodable & DomainConvertible>(_ data: Data, entity: [T].Type) -> [T.DomainEntityType]? {
-    let entities = mainParse(data: data, entityType: entity)
-    return entities?.compactMap { $0.domainEntity() }
+    mainParse(data: data, entityType: entity)?.compactMap({$0.domainEntity()})
   }
 }
+

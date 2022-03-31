@@ -27,5 +27,6 @@ struct VehicleStored: Codable {
     brand = ""
     model = ""
     capacity = ""
+    fuel = .gas95
   }
 }
