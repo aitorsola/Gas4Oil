@@ -15,12 +15,21 @@ class VehicleViewViewModel: ObservableObject {
   @Published var showSuccessAlert: Bool = false
   @Published var allFuelTypes = FuelType.allCases
 
+  @Published var selectedBrandIndex: Int = 0
+  @Published var selectedModelIndex: Int = 0
+
   @Published var allBrands = [VehicleBrandEntity]()
   @Published var allModelsForBrand = [VehicleModelEntity]()
 
-  @Published var selectedBrand: String?
+  @Published var selectedBrand: VehicleBrandEntity?
+  @Published var selectedModel: VehicleModelEntity?
 
   private var vehicleAPI: VehicleAPI = Network()
+
+  init() {
+    getVehicleData()
+    getAllBrands()
+  }
 
   // MARK: - Public
 
@@ -31,12 +40,14 @@ class VehicleViewViewModel: ObservableObject {
     self.vehicleData = vehicleData
   }
 
-  func saveVehicleData() {
-    guard !vehicleData.isEmpty() else {
-      return
-    }
-    showSuccessAlert = true
+  func saveVehicleData(brandIndex: Int, modelIndex: Int, capacity: String) {
+    vehicleData.brand = allBrands[brandIndex].brand
+    vehicleData.model = allModelsForBrand[modelIndex].model
+    vehicleData.capacity = capacity
+
     VehicleFavorite.saveVehicleData(data: vehicleData)
+
+    showSuccessAlert = true
   }
 
   func removeVehicle() {
@@ -50,7 +61,9 @@ class VehicleViewViewModel: ObservableObject {
       case .success(let brands):
         DispatchQueue.main.async {
           self.allBrands = brands
-          self.selectedBrand = brands.first?.brand
+          self.selectedBrand = brands.first
+          self.getModelsForBrandIndex(0)
+          self.getSavedVehicleBrandIndex()
         }
       case .failure(let error):
         print(error.localizedDescription)
@@ -59,16 +72,27 @@ class VehicleViewViewModel: ObservableObject {
   }
 
   func getModelsForBrandIndex(_ index: Int) {
-    let brand = allBrands[index]
-    print(brand)
-    vehicleAPI.getModelByBrand(brandId: brand.id) { result in
+    let brandId = allBrands[index].id
+    vehicleAPI.getModelByBrand(brandId: brandId) { result in
       switch result {
       case .success(let models):
-        self.allModelsForBrand = models
+        DispatchQueue.main.async {
+          self.allModelsForBrand = models
+          self.selectedModel = models.first
+          self.getSaveVehicleModelIndex()
+        }
       case .failure(let error):
         print(error.localizedDescription)
       }
     }
+  }
+
+  private func getSavedVehicleBrandIndex() {
+    selectedBrandIndex = allBrands.firstIndex(where: {$0.brand == vehicleData.brand }) ?? 0
+  }
+
+  private func getSaveVehicleModelIndex() {
+    selectedModelIndex = allModelsForBrand.firstIndex(where: {$0.model == vehicleData.model }) ?? 0
   }
 }
 

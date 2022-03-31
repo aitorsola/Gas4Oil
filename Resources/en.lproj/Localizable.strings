@@ -1,11 +1,3 @@
-/* 
-  Localizable.strings
-  Gas4Oil
-
-  Created by Aitor Sola on 9/3/22.
-  
-*/
-
 "common.loading" = "Loading";
 "common.gettingLocation" = "Getting location";
 "common.fuelType" = "Fuel";
