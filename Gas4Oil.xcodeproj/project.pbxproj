@@ -64,6 +64,7 @@
 		A489DF3A27F844D10020D769 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A489DF3927F844D10020D769 /* loading.json */; };
 		A489DF3B27F844D10020D769 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A489DF3927F844D10020D769 /* loading.json */; };
 		A489DF3E27F997890020D769 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A489DF3D27F997890020D769 /* NotificationBannerSwift */; };
+		A489DF4027F9A2C50020D769 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A489DF3F27F9A2C50020D769 /* Lottie */; };
 		A48F4AA627D2133F0024473D /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA527D2133F0024473D /* StationsModels.swift */; };
 		A48F4AA727D2133F0024473D /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA527D2133F0024473D /* StationsModels.swift */; };
 		A48F4AA927D218E80024473D /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA827D218E80024473D /* DomainConvertible.swift */; };
@@ -176,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A489DF4027F9A2C50020D769 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +440,7 @@
 			);
 			name = "Gas4Oil (macOS)";
 			packageProductDependencies = (
+				A489DF3F27F9A2C50020D769 /* Lottie */,
 			);
 			productName = "Gas4Oil (macOS)";
 			productReference = A444764C27D12DB600B25303 /* Gas4Oil.app */;
@@ -923,6 +926,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A489DF3C27F997890020D769 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
 			productName = NotificationBannerSwift;
+		};
+		A489DF3F27F9A2C50020D769 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A45D27A227E8E0F800C724D6 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

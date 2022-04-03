@@ -8,6 +8,9 @@
 import Foundation
 import Combine
 import SwiftUI
+#if canImport(UIKit)
+import Lottie
+#endif
 
 struct VehicleView: View {
 
@@ -15,9 +18,15 @@ struct VehicleView: View {
 
   @FocusState var capacityFocused: Bool
 
+  @State var showRemoveVehicleAlert: Bool = false
+
   var body: some View {
     if viewModel.loading {
+      #if os(iOS)
       LottieView(name: "loading", loopMode: .loop)
+      #else
+      ProgressView(title: "common.loading".translated)
+      #endif
     } else {
       ScrollView {
         Text("myVehicle.brand.title".translated)
@@ -27,7 +36,7 @@ struct VehicleView: View {
           .frame(maxWidth: .infinity, alignment: .leading)
 
         VStack(alignment: .leading) {
-          HStack {
+          HStack(spacing: 20) {
             Image("icn_brand").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
             Picker(selection: $viewModel.selectedBrandIndex, label: Text("")) {
               ForEach(0..<viewModel.allBrands.count, id: \.self) {
@@ -41,7 +50,7 @@ struct VehicleView: View {
             })
           }
           .padding(.bottom, 20)
-          HStack {
+          HStack(spacing: 20) {
             Image("icn_car_model").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
             Picker(selection: $viewModel.selectedModelIndex, label: Text("")) {
               ForEach(0..<viewModel.allModelsForBrand.count, id: \.self) {
@@ -53,7 +62,7 @@ struct VehicleView: View {
             })
           }
           .padding(.bottom, 20)
-          HStack {
+          HStack(spacing: 20) {
             Image("icn_fuel_can").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
             Picker("common.fuelType".translated, selection: $viewModel.vehicleData.fuel, content: {
               ForEach(viewModel.allFuelTypes, id: \.self) { item in
@@ -70,11 +79,16 @@ struct VehicleView: View {
           }
           .padding(.bottom, 20)
 
-          TextField("",
-                    text: $viewModel.vehicleData.capacity,
-                    prompt: Text("myVehicle.capacity.placeholder".translated))
-          .keyboardType(.numberPad)
-          .focused($capacityFocused)
+          HStack(spacing: 20) {
+            Image("icn_capacity").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
+            TextField("",
+                      text: $viewModel.vehicleData.capacity,
+                      prompt: Text("myVehicle.capacity.placeholder".translated))
+#if os(iOS)
+            .keyboardType(.numberPad)
+#endif
+            .focused($capacityFocused)
+          }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -85,8 +99,10 @@ struct VehicleView: View {
                                       modelIndex: viewModel.selectedModelIndex,
                                       capacity: viewModel.vehicleData.capacity)
           }
-          Gas4OilButton(title: "myVehicle.remove".translated, image: nil, isDisabled: viewModel.vehicleData.isEmpty()) {
-            viewModel.removeVehicle()
+          Gas4OilButton(title: "myVehicle.remove".translated,
+                        image: nil,
+                        isDisabled: viewModel.vehicleData.isEmpty()) {
+            showRemoveVehicleAlert = true
           }
         }
         .padding(20)
@@ -102,6 +118,14 @@ struct VehicleView: View {
       }
       .onTapGesture {
         unfocusAllResponders()
+      }
+      .alert("myVehicle.remove.alert.title".translated, isPresented: $showRemoveVehicleAlert) {
+        Button("myVehicle.remove".translated, role: .destructive) {
+          viewModel.removeVehicle()
+        }
+        Button("common.cancel", role: .cancel) {
+
+        }
       }
     }
   }

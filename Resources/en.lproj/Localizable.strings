@@ -1,4 +1,5 @@
 "common.loading" = "Loading";
+"common.cancel" = "Cancel";
 "common.gettingLocation" = "Getting location";
 "common.fuelType" = "Fuel";
 
@@ -41,3 +42,4 @@
 "myVehicle.capacity.placeholder" = "Capacity (L)";
 "myVehicle.save" = "Save";
 "myVehicle.remove" = "Remove";
+"myVehicle.remove.alert.title" = "Are you sure you want to remove this vehicle?";

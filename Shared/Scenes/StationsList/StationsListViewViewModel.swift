@@ -7,7 +7,9 @@
 
 import CoreLocation
 import SwiftUI
+#if canImport(UIKit)
 import NotificationBannerSwift
+#endif
 
 enum CommonStationBrand: String {
   case alcampo
@@ -147,13 +149,17 @@ class StationsListViewViewModel: ObservableObject {
           self.stations = stations
         }
       case .failure(let error):
-        let banner = NotificationBanner(title: error.localizedDescription,
-                                        subtitle: "",
-                                        leftView: nil,
-                                        rightView: nil,
-                                        style: .warning,
-                                        colors: nil)
-        banner.show()
+#if os(iOS)
+          let banner = NotificationBanner(title: error.localizedDescription,
+                                          subtitle: "",
+                                          leftView: nil,
+                                          rightView: nil,
+                                          style: .warning,
+                                          colors: nil)
+          banner.show()
+#else
+          print(error.localizedDescription)
+#endif
       }
     }
   }
@@ -231,7 +237,6 @@ extension StationsListViewViewModel {
           return station.rotulo.contains(brand.uppercased())
         }
       }
-      .prefix(kMaxLenght)
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
         case .near95, .near98, .nearDiesel:
@@ -249,7 +254,9 @@ extension StationsListViewViewModel {
         case .priceDieselUp:
           return station1.gasoleoA > station2.gasoleoA
         }
-      }))
+      })
+        .prefix(kMaxLenght))
+
     stations = newStations
     navigationTitle = currentCity?.capitalized ?? ""
   }
@@ -286,7 +293,7 @@ extension StationsListViewViewModel {
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
         case .near95, .near98, .nearDiesel:
-          return sortStationsByProximity(station1: station1, station2: station2, sortType: currentSortType)
+          return true
         case .price95Down:
           return station1.gasolina95E5 < station2.gasolina95E5
         case .price95Up:

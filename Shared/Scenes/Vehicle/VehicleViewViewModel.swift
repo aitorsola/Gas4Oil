@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import NotificationBannerSwift
+#endif
 
 class VehicleViewViewModel: ObservableObject {
 
@@ -15,7 +17,7 @@ class VehicleViewViewModel: ObservableObject {
   @Published var vehicleData: VehicleStored = VehicleStored(brand: "", model: "", capacity: "", fuel: .gas95)
   @Published var showSuccessAlert: Bool = false
   @Published var allFuelTypes = FuelType.allCases
-  @Published var loading: Bool = true
+  @Published var loading: Bool = false
 
   @Published var selectedBrandIndex: Int = 0
   @Published var selectedModelIndex: Int = 0
@@ -70,6 +72,7 @@ class VehicleViewViewModel: ObservableObject {
           self.getSavedVehicleBrandIndex()
           self.getModelsForBrandIndex(self.selectedBrandIndex)
         case .failure(let error):
+#if os(iOS)
           let banner = NotificationBanner(title: error.localizedDescription,
                                           subtitle: "",
                                           leftView: nil,
@@ -77,6 +80,9 @@ class VehicleViewViewModel: ObservableObject {
                                           style: .warning,
                                           colors: nil)
           banner.show()
+#else
+          print(error.localizedDescription)
+#endif
         }
       }
     }
@@ -92,13 +98,17 @@ class VehicleViewViewModel: ObservableObject {
           self.getSaveVehicleModelIndex()
         }
       case .failure(let error):
-        let banner = NotificationBanner(title: error.localizedDescription,
-                                        subtitle: "",
-                                        leftView: nil,
-                                        rightView: nil,
-                                        style: .warning,
-                                        colors: nil)
-        banner.show()
+#if os(iOS)
+          let banner = NotificationBanner(title: error.localizedDescription,
+                                          subtitle: "",
+                                          leftView: nil,
+                                          rightView: nil,
+                                          style: .warning,
+                                          colors: nil)
+          banner.show()
+#else
+          print(error.localizedDescription)
+#endif
       }
     }
   }
