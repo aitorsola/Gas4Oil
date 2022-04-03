@@ -7,6 +7,7 @@
 
 import CoreLocation
 import SwiftUI
+import NotificationBannerSwift
 
 enum CommonStationBrand: String {
   case alcampo
@@ -34,7 +35,7 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 50
+  private var kMaxLenght = 5
 
   let defaults: UserDefaults = UserDefaults.standard
 
@@ -135,51 +136,24 @@ class StationsListViewViewModel: ObservableObject {
       switch result {
       case .success(let stations):
         self.allStations = stations
-        self.updateFavoriteStationsData(stations: self.allStations)
+        self.updateFavoriteStationsData(stations: stations)
+
         let stations = Array(self.allStations
           .filter { !$0.gasolina95E5.isEmpty }
-          .sorted(by: { station1, station2 in
-            switch self.currentSortType {
-            case .near98, .near95, .nearDiesel:
-              return self.sortStationsByProximity(station1: station1, station2: station2, sortType: self.currentSortType)
-            case .price95Down:
-              return station1.gasolina95E5 < station2.gasolina95E5
-            case .price95Up:
-              return station1.gasolina95E5 > station2.gasolina95E5
-            case .price98Down:
-              return station1.gasolina98E5 < station2.gasolina98E5
-            case .price98Up:
-              return station1.gasolina98E5 > station2.gasolina98E5
-            case .priceDieselDown:
-              return station1.gasoleoA < station2.gasoleoA
-            case .priceDieselUp:
-              return station1.gasoleoA > station2.gasoleoA
-            }
-          })
-            .filter { station in
-              switch self.currentSortType {
-              case .near98, .price98Up, .price98Down:
-                return !station.gasolina98E5.isEmpty
-              case .near95, .price95Up, .price95Down:
-                return !station.gasolina95E5.isEmpty
-              case .nearDiesel, .priceDieselUp, .priceDieselDown:
-                return !station.gasoleoA.isEmpty
-              }
-            }
-          .filter { station in
-            switch self.currentSortBrand {
-            case .all:
-              return true
-            case .brand(let brand):
-              return station.rotulo.contains(brand.uppercased())
-            }
-          }
+          .sorted(by: { self.sortStationsByProximity(station1: $0, station2: $1, sortType: self.currentSortType) })
           .prefix(self.kMaxLenght))
+
         DispatchQueue.main.async {
           self.stations = stations
         }
       case .failure(let error):
-        print(error.localizedDescription)
+        let banner = NotificationBanner(title: error.localizedDescription,
+                                        subtitle: "",
+                                        leftView: nil,
+                                        rightView: nil,
+                                        style: .warning,
+                                        colors: nil)
+        banner.show()
       }
     }
   }
@@ -203,41 +177,44 @@ extension StationsListViewViewModel {
       showFuelSorted(currentSortType)
     case .brand(let brand):
       let newStations = Array(self.allStations
-        .filter({$0.rotulo.contains(brand.uppercased())})
-        .filter({ station in
+        .filter { $0.rotulo.contains(brand.uppercased()) }
+        .filter { station in
           guard let currentCity = currentCity else {
             return true
           }
           return station.municipio == currentCity.lowercased() || station.provincia == currentCity.lowercased()
+        }
+        .filter { station in
+          switch self.currentSortType {
+          case .near98, .price98Up, .price98Down:
+            return !station.gasolina98E5.isEmpty
+          case .near95, .price95Up, .price95Down:
+            return !station.gasolina95E5.isEmpty
+          case .nearDiesel, .priceDieselUp, .priceDieselDown:
+            return !station.gasoleoA.isEmpty
+          }
+        }
+        .sorted(by: { station1, station2 in
+          switch self.currentSortType {
+          case .near95, .near98, .nearDiesel:
+            return true
+          case .price95Down:
+            return station1.gasolina95E5 < station2.gasolina95E5
+          case .price95Up:
+            return station1.gasolina95E5 > station2.gasolina95E5
+          case .price98Down:
+            return station1.gasolina98E5 < station2.gasolina98E5
+          case .price98Up:
+            return station1.gasolina98E5 > station2.gasolina98E5
+          case .priceDieselDown:
+            return station1.gasoleoA < station2.gasoleoA
+          case .priceDieselUp:
+            return station1.gasoleoA > station2.gasoleoA
+          }
         })
-          .sorted(by: { station1, station2 in
-            switch self.currentSortType {
-            case .near95, .near98, .nearDiesel:
-              return sortStationsByProximity(station1: station1, station2: station2, sortType: currentSortType)
-            case .price95Down:
-              return station1.gasolina95E5 < station2.gasolina95E5
-            case .price95Up:
-              return station1.gasolina95E5 > station2.gasolina95E5
-            case .price98Down:
-              return station1.gasolina98E5 < station2.gasolina98E5
-            case .price98Up:
-              return station1.gasolina98E5 > station2.gasolina98E5
-            case .priceDieselDown:
-              return station1.gasoleoA < station2.gasoleoA
-            case .priceDieselUp:
-              return station1.gasoleoA > station2.gasoleoA
-            }
-          })
-            .filter { station in
-              switch self.currentSortType {
-              case .near98, .price98Up, .price98Down:
-                return !station.gasolina98E5.isEmpty
-              case .near95, .price95Up, .price95Down:
-                return !station.gasolina95E5.isEmpty
-              case .nearDiesel, .priceDieselUp, .priceDieselDown:
-                return !station.gasoleoA.isEmpty
-              }
-            }.prefix(kMaxLenght))
+        .sorted(by: { self.sortStationsByProximity(station1: $0, station2: $1, sortType: currentSortType) })
+        .prefix(kMaxLenght))
+
       stations = newStations
     }
   }
@@ -246,6 +223,15 @@ extension StationsListViewViewModel {
     currentCity = city.lowercased()
     let newStations = Array(self.allStations
       .filter {$0.municipio == currentCity || $0.provincia == currentCity }
+      .filter { station in
+        switch self.currentSortBrand {
+        case .all:
+          return true
+        case .brand(let brand):
+          return station.rotulo.contains(brand.uppercased())
+        }
+      }
+      .prefix(kMaxLenght)
       .sorted(by: { station1, station2 in
         switch self.currentSortType {
         case .near95, .near98, .nearDiesel:
@@ -263,15 +249,7 @@ extension StationsListViewViewModel {
         case .priceDieselUp:
           return station1.gasoleoA > station2.gasoleoA
         }
-      })
-        .filter { station in
-          switch self.currentSortBrand {
-          case .all:
-            return true
-          case .brand(let brand):
-            return station.rotulo.contains(brand.uppercased())
-          }
-        }.prefix(kMaxLenght))
+      }))
     stations = newStations
     navigationTitle = currentCity?.capitalized ?? ""
   }
@@ -279,49 +257,51 @@ extension StationsListViewViewModel {
   func showFuelSorted(_ by: SortType) {
     self.currentSortType = by
     let newStations = Array(self.allStations
-      .filter({ station in
+      .filter { station in
         guard let currentCity = currentCity else {
           return true
         }
         return station.municipio == currentCity.lowercased() || station.provincia == currentCity.lowercased()
-      })
-        .sorted(by: { station1, station2 in
-          switch self.currentSortType {
-          case .near95, .near98, .nearDiesel:
-            return sortStationsByProximity(station1: station1, station2: station2, sortType: by)
-          case .price95Down:
-            return station1.gasolina95E5 < station2.gasolina95E5
-          case .price95Up:
-            return station1.gasolina95E5 > station2.gasolina95E5
-          case .price98Down:
-            return station1.gasolina98E5 < station2.gasolina98E5
-          case .price98Up:
-            return station1.gasolina98E5 > station2.gasolina98E5
-          case .priceDieselDown:
-            return station1.gasoleoA < station2.gasoleoA
-          case .priceDieselUp:
-            return station1.gasoleoA > station2.gasoleoA
-          }
-        })
-          .filter({ station in
-            switch self.currentSortType {
-            case .near98, .price98Up, .price98Down:
-              return !station.gasolina98E5.isEmpty
-            case .near95, .price95Up, .price95Down:
-              return !station.gasolina95E5.isEmpty
-            case .nearDiesel, .priceDieselUp, .priceDieselDown:
-              return !station.gasoleoA.isEmpty
-            }
-          })
-            .filter { station in
-              switch self.currentSortBrand {
-              case .all:
-                return true
-              case .brand(let brand):
-                return station.rotulo.contains(brand.uppercased())
-              }
-            }
-      .prefix(kMaxLenght))
+      }
+      .filter { station in
+        switch self.currentSortType {
+        case .near98, .price98Up, .price98Down:
+          return !station.gasolina98E5.isEmpty
+        case .near95, .price95Up, .price95Down:
+          return !station.gasolina95E5.isEmpty
+        case .nearDiesel, .priceDieselUp, .priceDieselDown:
+          return !station.gasoleoA.isEmpty
+        }
+      }
+      .filter { station in
+        switch self.currentSortBrand {
+        case .all:
+          return true
+        case .brand(let brand):
+          return station.rotulo.contains(brand.uppercased())
+        }
+      }
+      .sorted(by: { self.sortStationsByProximity(station1: $0, station2: $1, sortType: by) })
+      .prefix(kMaxLenght)
+      .sorted(by: { station1, station2 in
+        switch self.currentSortType {
+        case .near95, .near98, .nearDiesel:
+          return sortStationsByProximity(station1: station1, station2: station2, sortType: currentSortType)
+        case .price95Down:
+          return station1.gasolina95E5 < station2.gasolina95E5
+        case .price95Up:
+          return station1.gasolina95E5 > station2.gasolina95E5
+        case .price98Down:
+          return station1.gasolina98E5 < station2.gasolina98E5
+        case .price98Up:
+          return station1.gasolina98E5 > station2.gasolina98E5
+        case .priceDieselDown:
+          return station1.gasoleoA < station2.gasoleoA
+        case .priceDieselUp:
+          return station1.gasoleoA > station2.gasoleoA
+        }
+      }))
+
     stations = newStations
   }
 

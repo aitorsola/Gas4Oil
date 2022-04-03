@@ -16,89 +16,93 @@ struct VehicleView: View {
   @FocusState var capacityFocused: Bool
 
   var body: some View {
-    ScrollView {
-      Text("myVehicle.brand.title".translated)
-        .font(.customSize(35, weight: .bold, design: .default))
-        .padding(.bottom, 30)
-        .padding(.top, 30)
-        .frame(maxWidth: .infinity, alignment: .leading)
+    if viewModel.loading {
+      LottieView(name: "loading", loopMode: .loop)
+    } else {
+      ScrollView {
+        Text("myVehicle.brand.title".translated)
+          .font(.customSize(35, weight: .bold, design: .default))
+          .padding(.bottom, 30)
+          .padding(.top, 30)
+          .frame(maxWidth: .infinity, alignment: .leading)
 
-      VStack(alignment: .leading) {
-        HStack {
-          Image("icn_brand").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
-          Picker(selection: $viewModel.selectedBrandIndex, label: Text("")) {
-            ForEach(0..<viewModel.allBrands.count, id: \.self) {
-              Text(self.viewModel.allBrands[$0].brand)
-            }
-          }
-          .onChange(of: viewModel.selectedBrandIndex, perform: { index in
-            viewModel.selectedModelIndex = 0
-            viewModel.selectedBrand = viewModel.allBrands[index]
-            viewModel.getModelsForBrandIndex(index)
-          })
-        }
-        .padding(.bottom, 20)
-        HStack {
-          Image("icn_car_model").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
-          Picker(selection: $viewModel.selectedModelIndex, label: Text("")) {
-            ForEach(0..<viewModel.allModelsForBrand.count, id: \.self) {
-              Text(self.viewModel.allModelsForBrand[$0].model)
-            }
-          }
-          .onChange(of: viewModel.selectedModelIndex, perform: { index in
-            viewModel.selectedModel = viewModel.allModelsForBrand[index]
-          })
-        }
-        .padding(.bottom, 20)
-        HStack {
-          Image("icn_fuel_can").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
-          Picker("common.fuelType".translated, selection: $viewModel.vehicleData.fuel, content: {
-            ForEach(viewModel.allFuelTypes, id: \.self) { item in
-              switch item {
-              case .gas95:
-                Text("fuel.95".translated).tag(FuelType.gas95)
-              case .gas98:
-                Text("fuel.98".translated).tag(FuelType.gas98)
-              case .diesel:
-                Text("fuel.diesel".translated).tag(FuelType.diesel)
+        VStack(alignment: .leading) {
+          HStack {
+            Image("icn_brand").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
+            Picker(selection: $viewModel.selectedBrandIndex, label: Text("")) {
+              ForEach(0..<viewModel.allBrands.count, id: \.self) {
+                Text(self.viewModel.allBrands[$0].brand)
               }
             }
-          })
-        }
-        .padding(.bottom, 20)
+            .onChange(of: viewModel.selectedBrandIndex, perform: { index in
+              viewModel.selectedModelIndex = 0
+              viewModel.selectedBrand = viewModel.allBrands[index]
+              viewModel.getModelsForBrandIndex(index)
+            })
+          }
+          .padding(.bottom, 20)
+          HStack {
+            Image("icn_car_model").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
+            Picker(selection: $viewModel.selectedModelIndex, label: Text("")) {
+              ForEach(0..<viewModel.allModelsForBrand.count, id: \.self) {
+                Text(self.viewModel.allModelsForBrand[$0].model)
+              }
+            }
+            .onChange(of: viewModel.selectedModelIndex, perform: { index in
+              viewModel.selectedModel = viewModel.allModelsForBrand[index]
+            })
+          }
+          .padding(.bottom, 20)
+          HStack {
+            Image("icn_fuel_can").resizable().clipped().frame(width: 30, height: 30).scaledToFit()
+            Picker("common.fuelType".translated, selection: $viewModel.vehicleData.fuel, content: {
+              ForEach(viewModel.allFuelTypes, id: \.self) { item in
+                switch item {
+                case .gas95:
+                  Text("fuel.95".translated).tag(FuelType.gas95)
+                case .gas98:
+                  Text("fuel.98".translated).tag(FuelType.gas98)
+                case .diesel:
+                  Text("fuel.diesel".translated).tag(FuelType.diesel)
+                }
+              }
+            })
+          }
+          .padding(.bottom, 20)
 
-        TextField("",
-                  text: $viewModel.vehicleData.capacity,
-                  prompt: Text("myVehicle.capacity.placeholder".translated))
-        .keyboardType(.numberPad)
-        .focused($capacityFocused)
+          TextField("",
+                    text: $viewModel.vehicleData.capacity,
+                    prompt: Text("myVehicle.capacity.placeholder".translated))
+          .keyboardType(.numberPad)
+          .focused($capacityFocused)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+
+        HStack {
+          Gas4OilButton(title: "myVehicle.save".translated, image: nil, isDisabled: false) {
+            unfocusAllResponders()
+            viewModel.saveVehicleData(brandIndex: viewModel.selectedBrandIndex,
+                                      modelIndex: viewModel.selectedModelIndex,
+                                      capacity: viewModel.vehicleData.capacity)
+          }
+          Gas4OilButton(title: "myVehicle.remove".translated, image: nil, isDisabled: viewModel.vehicleData.isEmpty()) {
+            viewModel.removeVehicle()
+          }
+        }
+        .padding(20)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-
-      HStack {
-        Gas4OilButton(title: "myVehicle.save".translated, image: nil, isDisabled: false) {
-          unfocusAllResponders()
-          viewModel.saveVehicleData(brandIndex: viewModel.selectedBrandIndex,
-                                    modelIndex: viewModel.selectedModelIndex,
-                                    capacity: viewModel.vehicleData.capacity)
-        }
-        Gas4OilButton(title: "myVehicle.remove".translated, image: nil, isDisabled: viewModel.vehicleData.isEmpty()) {
-          viewModel.removeVehicle()
+      .padding()
+      .alert("myVehicle.saved.message".translated, isPresented: $viewModel.showSuccessAlert) {
+        VStack {
+          Button("Ok") {
+            print("action1")
+          }
         }
       }
-      .padding(20)
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .padding()
-    .alert("myVehicle.saved.message".translated, isPresented: $viewModel.showSuccessAlert) {
-      VStack {
-        Button("Ok") {
-          print("action1")
-        }
+      .onTapGesture {
+        unfocusAllResponders()
       }
-    }
-    .onTapGesture {
-      unfocusAllResponders()
     }
   }
 

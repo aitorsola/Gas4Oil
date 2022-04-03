@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NotificationBannerSwift
 
 class VehicleViewViewModel: ObservableObject {
 
@@ -14,6 +15,7 @@ class VehicleViewViewModel: ObservableObject {
   @Published var vehicleData: VehicleStored = VehicleStored(brand: "", model: "", capacity: "", fuel: .gas95)
   @Published var showSuccessAlert: Bool = false
   @Published var allFuelTypes = FuelType.allCases
+  @Published var loading: Bool = true
 
   @Published var selectedBrandIndex: Int = 0
   @Published var selectedModelIndex: Int = 0
@@ -60,16 +62,22 @@ class VehicleViewViewModel: ObservableObject {
 
   func getAllBrands() {
     vehicleAPI.getBrands { result in
-      switch result {
-      case .success(let brands):
-        DispatchQueue.main.async {
+      DispatchQueue.main.async {
+        self.loading = false
+        switch result {
+        case .success(let brands):
           self.allBrands = brands
-          self.selectedBrand = brands.first
-          self.getModelsForBrandIndex(0)
           self.getSavedVehicleBrandIndex()
+          self.getModelsForBrandIndex(self.selectedBrandIndex)
+        case .failure(let error):
+          let banner = NotificationBanner(title: error.localizedDescription,
+                                          subtitle: "",
+                                          leftView: nil,
+                                          rightView: nil,
+                                          style: .warning,
+                                          colors: nil)
+          banner.show()
         }
-      case .failure(let error):
-        print(error.localizedDescription)
       }
     }
   }
@@ -81,11 +89,16 @@ class VehicleViewViewModel: ObservableObject {
       case .success(let models):
         DispatchQueue.main.async {
           self.allModelsForBrand = models
-          self.selectedModel = models.first
           self.getSaveVehicleModelIndex()
         }
       case .failure(let error):
-        print(error.localizedDescription)
+        let banner = NotificationBanner(title: error.localizedDescription,
+                                        subtitle: "",
+                                        leftView: nil,
+                                        rightView: nil,
+                                        style: .warning,
+                                        colors: nil)
+        banner.show()
       }
     }
   }

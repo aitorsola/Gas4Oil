@@ -61,6 +61,9 @@
 		A487AB8727E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8527E8B2FF0085385E /* VehicleViewViewModel.swift */; };
 		A487AB8927E8B8530085385E /* VehicleDataStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8827E8B8530085385E /* VehicleDataStored.swift */; };
 		A487AB8A27E8B8530085385E /* VehicleDataStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A487AB8827E8B8530085385E /* VehicleDataStored.swift */; };
+		A489DF3A27F844D10020D769 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A489DF3927F844D10020D769 /* loading.json */; };
+		A489DF3B27F844D10020D769 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A489DF3927F844D10020D769 /* loading.json */; };
+		A489DF3E27F997890020D769 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A489DF3D27F997890020D769 /* NotificationBannerSwift */; };
 		A48F4AA627D2133F0024473D /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA527D2133F0024473D /* StationsModels.swift */; };
 		A48F4AA727D2133F0024473D /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA527D2133F0024473D /* StationsModels.swift */; };
 		A48F4AA927D218E80024473D /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F4AA827D218E80024473D /* DomainConvertible.swift */; };
@@ -139,6 +142,7 @@
 		A487AB8227E8A6250085385E /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		A487AB8527E8B2FF0085385E /* VehicleViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewViewModel.swift; sourceTree = "<group>"; };
 		A487AB8827E8B8530085385E /* VehicleDataStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataStored.swift; sourceTree = "<group>"; };
+		A489DF3927F844D10020D769 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		A48F4AA527D2133F0024473D /* StationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsModels.swift; sourceTree = "<group>"; };
 		A48F4AA827D218E80024473D /* DomainConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertible.swift; sourceTree = "<group>"; };
 		A48F4AAB27D219270024473D /* Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stations.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A45D27A427E8E0F800C724D6 /* Lottie in Frameworks */,
+				A489DF3E27F997890020D769 /* NotificationBannerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +307,7 @@
 		A444767727D143BB00B25303 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				A489DF3927F844D10020D769 /* loading.json */,
 				A416FCA927E6977700FCC16A /* location.json */,
 				A444767827D143C500B25303 /* gas_station.json */,
 			);
@@ -412,6 +418,7 @@
 			name = "Gas4Oil (iOS)";
 			packageProductDependencies = (
 				A45D27A327E8E0F800C724D6 /* Lottie */,
+				A489DF3D27F997890020D769 /* NotificationBannerSwift */,
 			);
 			productName = "Gas4Oil (iOS)";
 			productReference = A444764627D12DB600B25303 /* Gas4Oil.app */;
@@ -465,6 +472,7 @@
 			mainGroup = A444763927D12DB500B25303;
 			packageReferences = (
 				A45D27A227E8E0F800C724D6 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				A489DF3C27F997890020D769 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 			);
 			productRefGroup = A444764727D12DB600B25303 /* Products */;
 			projectDirPath = "";
@@ -485,6 +493,7 @@
 				A416FCAA27E6977700FCC16A /* location.json in Resources */,
 				A478913A27D9217D001CA76E /* Localizable.strings in Resources */,
 				A444765327D12DB600B25303 /* Assets.xcassets in Resources */,
+				A489DF3A27F844D10020D769 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +505,7 @@
 				A416FCAB27E6977700FCC16A /* location.json in Resources */,
 				A478913B27D9217D001CA76E /* Localizable.strings in Resources */,
 				A444765427D12DB600B25303 /* Assets.xcassets in Resources */,
+				A489DF3B27F844D10020D769 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +903,14 @@
 				kind = branch;
 			};
 		};
+		A489DF3C27F997890020D769 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -900,6 +918,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A45D27A227E8E0F800C724D6 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		A489DF3D27F997890020D769 /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A489DF3C27F997890020D769 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

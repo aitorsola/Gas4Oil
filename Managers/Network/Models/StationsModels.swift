@@ -10,17 +10,17 @@ import CoreLocation
 struct StationsResponse: Decodable, DomainConvertible {
   typealias DomainEntityType = Stations
 
-  func domainEntity() -> Stations? {
-    let stations = prices.compactMap({$0.domainEntity()})
-    return Stations(stations: stations)
-  }
-
   let date: String
   let prices: [ListaEESSPrecio]
 
   enum CodingKeys: String, CodingKey {
     case date = "Fecha"
     case prices = "ListaEESSPrecio"
+  }
+
+  func domainEntity() -> Stations? {
+    let stations = prices.compactMap({$0.domainEntity()})
+    return Stations(stations: stations)
   }
 
   struct ListaEESSPrecio: Decodable, DomainConvertible {
@@ -98,6 +98,5 @@ struct StationsResponse: Decodable, DomainConvertible {
                      rotulo: rotulo,
                      isFav: FavoriteStations.isFavorite(id))
     }
-
   }
 }
