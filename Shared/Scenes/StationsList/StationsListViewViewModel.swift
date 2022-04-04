@@ -37,7 +37,7 @@ class StationsListViewViewModel: ObservableObject {
   private var locationManager: LocationManager
   private var servicesStationsAPI: ServiceStationsAPI
 
-  private var kMaxLenght = 5
+  private var kMaxLenght = 200
 
   let defaults: UserDefaults = UserDefaults.standard
 
@@ -75,7 +75,7 @@ class StationsListViewViewModel: ObservableObject {
     .petronor,
     .repsol,
     .petroprix,
-    .shell].sorted(by: { $0.rawValue < $1.rawValue })
+    .shell].sorted(by: { $0.rawValue > $1.rawValue })
 
   // MARK: - Lifecycle
 

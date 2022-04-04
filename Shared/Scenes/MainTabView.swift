@@ -21,6 +21,10 @@ struct MainTabView: View {
 
   @ObservedObject var viewModel = MainTabViewViewModel()
 
+  #if os(iOS)
+  @EnvironmentObject var appDelegate: AppDelegate
+  #endif
+
   var body: some View {
     VStack {
 

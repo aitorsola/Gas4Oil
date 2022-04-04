@@ -9,4 +9,7 @@ import Foundation
 
 struct Managers {
   static let location = Location()
+  #if os(iOS)
+  static let backgroundTask: BackgroundTaskManagerProtocol = BackgroundTaskManager()
+  #endif
 }

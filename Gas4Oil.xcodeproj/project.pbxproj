@@ -15,7 +15,6 @@
 		A416FCAA27E6977700FCC16A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A416FCA927E6977700FCC16A /* location.json */; };
 		A416FCAB27E6977700FCC16A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A416FCA927E6977700FCC16A /* location.json */; };
 		A444764F27D12DB600B25303 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
-		A444765027D12DB600B25303 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
 		A444765327D12DB600B25303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A444764127D12DB600B25303 /* Assets.xcassets */; };
 		A444765427D12DB600B25303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A444764127D12DB600B25303 /* Assets.xcassets */; };
 		A444766E27D13A8300B25303 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444766B27D13A3100B25303 /* Font.swift */; };
@@ -33,6 +32,9 @@
 		A444768427D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
 		A444768527D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
 		A45D27A427E8E0F800C724D6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A45D27A327E8E0F800C724D6 /* Lottie */; };
+		A46E057D27FB5D7100697A57 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
+		A46E057F27FB5D9300697A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E057E27FB5D9300697A57 /* AppDelegate.swift */; };
+		A46E058127FB69C400697A57 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E058027FB69C400697A57 /* BackgroundTaskManager.swift */; };
 		A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF427D519740005736F /* Gas4OilButton.swift */; };
 		A4727BF827D528AF0005736F /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4727BF727D528AF0005736F /* Sequence.swift */; };
@@ -127,6 +129,8 @@
 		A444767D27D17A5D00B25303 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		A444768327D1887A00B25303 /* StationsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsEngine.swift; sourceTree = "<group>"; };
 		A44AF40627DA014B008213B7 /* Gas4Oil--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Gas4Oil--iOS--Info.plist"; sourceTree = "<group>"; };
+		A46E057E27FB5D9300697A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A46E058027FB69C400697A57 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		A4727BF427D519740005736F /* Gas4OilButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4OilButton.swift; sourceTree = "<group>"; };
 		A4727BF727D528AF0005736F /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		A4727BFB27D57D4B0005736F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				A444765F27D130F300B25303 /* Domain Models */,
 				A444766027D131F600B25303 /* Scenes */,
 				A444763F27D12DB500B25303 /* Gas4OilApp.swift */,
+				A46E057E27FB5D9300697A57 /* AppDelegate.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				A444766827D1380F00B25303 /* LocationManager.swift */,
 				A48F4AB427D4B4B60024473D /* Managers.swift */,
 				A48F4AB727D4B7E90024473D /* Device.swift */,
+				A46E058027FB69C400697A57 /* BackgroundTaskManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 			files = (
 				A487AB8327E8A6250085385E /* VehicleView.swift in Sources */,
 				A444766E27D13A8300B25303 /* Font.swift in Sources */,
+				A46E057F27FB5D9300697A57 /* AppDelegate.swift in Sources */,
 				A48F4AAF27D4B18D0024473D /* StationsListView.swift in Sources */,
 				A4E70BB227F07AF30097CBF2 /* VehicleStored.swift in Sources */,
 				A4A2F8F127F0692000AC92E8 /* View.swift in Sources */,
@@ -528,6 +535,7 @@
 				A48581CC27DB3FE700864885 /* FavoriteListViewViewModel.swift in Sources */,
 				A48F4AAC27D219270024473D /* Stations.swift in Sources */,
 				A487AB8627E8B2FF0085385E /* VehicleViewViewModel.swift in Sources */,
+				A46E058127FB69C400697A57 /* BackgroundTaskManager.swift in Sources */,
 				A48581C927DB3E6000864885 /* MainTabViewViewModel.swift in Sources */,
 				A48F4AB527D4B4B60024473D /* Managers.swift in Sources */,
 				A4A2F8F427F06F8500AC92E8 /* VehicleEngine.swift in Sources */,
@@ -578,6 +586,7 @@
 				A48F4ABD27D4DEA10024473D /* StationView.swift in Sources */,
 				A48F4AB927D4B7E90024473D /* Device.swift in Sources */,
 				A4727C0027D57D5F0005736F /* MapViewViewModel.swift in Sources */,
+				A46E057D27FB5D7100697A57 /* Gas4OilApp.swift in Sources */,
 				A497C4F927D74C85009E1CC6 /* Double.swift in Sources */,
 				A48581C727DAC54100864885 /* FavoriteListView.swift in Sources */,
 				A487AB8A27E8B8530085385E /* VehicleDataStored.swift in Sources */,
@@ -596,7 +605,6 @@
 				A406706E27D90F8D00193D36 /* MainTabView.swift in Sources */,
 				A4727BF927D528AF0005736F /* Sequence.swift in Sources */,
 				A4727BFD27D57D4B0005736F /* MapView.swift in Sources */,
-				A444765027D12DB600B25303 /* Gas4OilApp.swift in Sources */,
 				A406706427D8BE5F00193D36 /* FavoriteStations.swift in Sources */,
 				A48F4AB327D4B1CF0024473D /* StationsListViewViewModel.swift in Sources */,
 			);
@@ -743,7 +751,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Gas4Oil--iOS--Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to know where you are in order to get nearest fuel stations";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -776,7 +783,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Gas4Oil--iOS--Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to know where you are in order to get nearest fuel stations";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

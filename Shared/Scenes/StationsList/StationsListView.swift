@@ -29,6 +29,10 @@ struct StationsListView: View {
 
   @StateObject var viewModel: StationsListViewViewModel
 
+#if os(iOS)
+  @EnvironmentObject var appDelegate: AppDelegate
+#endif
+
   @State private var sortType: SortType = .near95
   @State private var sortBrand: FuelBrandSortType = .all
   @State private var queryString: String = ""
@@ -67,6 +71,9 @@ struct StationsListView: View {
         VStack(spacing: 15) {
           List(viewModel.stations) { station in
             createNavigationLink(station)
+          }
+          .refreshable {
+            viewModel.requestLocation()
           }
           .navigationTitle(viewModel.navigationTitle ?? "")
 #if os(iOS)
@@ -148,6 +155,11 @@ struct StationsListView: View {
 #endif
         }
       }
+      #if os(iOS)
+      .onReceive(NotificationCenter.default.publisher(for: .updateStations)) { _ in
+        viewModel.requestLocation()
+      }
+      #endif
     }
   }
 
