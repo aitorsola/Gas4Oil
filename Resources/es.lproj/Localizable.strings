@@ -31,6 +31,9 @@
 "listView.sortType.downDiesel.button" = "Precio más bajo diésel";
 "listView.sortType.upDiesel.button" = "Precio más alto diésel";
 
+"listView.ad.title" = "¿Qué puedes hacer?";
+"listView.ad.description" = "Descubre las estaciones de servicio que más te interesen. Filtra por marca, por tipo de combustible o por precio descendente, ascendente o cercanía.\nPuedes también añadir las estaciones de servicio que prefieras a tu lista de favoritos.";
+
 "mainTab.favTabTitle" = "Favoritos";
 "mainTab.stationsTabTitle" = "Estaciones";
 "mainTab.vehicle" = "Mi vehículo";
@@ -43,3 +46,5 @@
 "myVehicle.save" = "Guardar";
 "myVehicle.remove" = "Eliminar";
 "myVehicle.remove.alert.title" = "¿Estás seguro de que quieres eliminar este vehículo?";
+"myVehicle.ad.title" = "Añade un vehículo";
+"myVehicle.ad.description" = "¿Sabías que puedes añadir un vehículo de forma que podrás saber de antemano cuánto te costará llenar el depósito en cada gasolinera?";

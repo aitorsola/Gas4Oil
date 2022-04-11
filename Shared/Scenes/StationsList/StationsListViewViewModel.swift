@@ -55,6 +55,7 @@ class StationsListViewViewModel: ObservableObject {
       isLoading = !locationAllowed
     }
   }
+  @Published var adViewSeen: Bool = true
   @Published var isLoading: Bool = false
   @Published var navigationTitle: String?
   @Published var isLoaded: Bool = false
@@ -120,6 +121,12 @@ class StationsListViewViewModel: ObservableObject {
     }
   }
 
+  func didTapAdButton() {
+    adViewSeen = true
+    defaults.set(true, forKey: "stationsView.adSeen")
+    defaults.synchronize()
+  }
+
   // MARK: - Private
 
   private func getStations() {
@@ -134,6 +141,7 @@ class StationsListViewViewModel: ObservableObject {
       DispatchQueue.main.async {
         self.isLoaded = true
         self.isLoading = false
+        self.adViewSeen = self.defaults.bool(forKey: "stationsView.adSeen")
       }
       switch result {
       case .success(let stations):

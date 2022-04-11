@@ -63,6 +63,7 @@ class VehicleViewViewModel: ObservableObject {
   }
 
   func getAllBrands() {
+    self.loading = true
     vehicleAPI.getBrands { result in
       DispatchQueue.main.async {
         self.loading = false
@@ -99,15 +100,15 @@ class VehicleViewViewModel: ObservableObject {
         }
       case .failure(let error):
 #if os(iOS)
-          let banner = NotificationBanner(title: error.localizedDescription,
-                                          subtitle: "",
-                                          leftView: nil,
-                                          rightView: nil,
-                                          style: .warning,
-                                          colors: nil)
-          banner.show()
+        let banner = NotificationBanner(title: error.localizedDescription,
+                                        subtitle: "",
+                                        leftView: nil,
+                                        rightView: nil,
+                                        style: .warning,
+                                        colors: nil)
+        banner.show()
 #else
-          print(error.localizedDescription)
+        print(error.localizedDescription)
 #endif
       }
     }

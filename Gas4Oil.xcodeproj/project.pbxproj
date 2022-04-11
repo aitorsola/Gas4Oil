@@ -11,6 +11,8 @@
 		A406706427D8BE5F00193D36 /* FavoriteStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706227D8BE5E00193D36 /* FavoriteStations.swift */; };
 		A406706D27D90F8D00193D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706C27D90F8D00193D36 /* MainTabView.swift */; };
 		A406706E27D90F8D00193D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406706C27D90F8D00193D36 /* MainTabView.swift */; };
+		A41249F027FC24A50018BDB4 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41249EF27FC24A50018BDB4 /* AdView.swift */; };
+		A41249F127FC24A50018BDB4 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41249EF27FC24A50018BDB4 /* AdView.swift */; };
 		A416FCA427E663C200FCC16A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416FCA327E663C200FCC16A /* LottieView.swift */; };
 		A416FCAA27E6977700FCC16A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A416FCA927E6977700FCC16A /* location.json */; };
 		A416FCAB27E6977700FCC16A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A416FCA927E6977700FCC16A /* location.json */; };
@@ -95,6 +97,9 @@
 		A4A2F8FB27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F8F927F0755F00AC92E8 /* VehicleBrandEntity.swift */; };
 		A4E70BB227F07AF30097CBF2 /* VehicleStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */; };
 		A4E70BB327F07AF30097CBF2 /* VehicleStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */; };
+		A4F3728C27FC555900458EBE /* DragBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3728B27FC555900458EBE /* DragBar.swift */; };
+		A4F3728D27FC555900458EBE /* DragBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3728B27FC555900458EBE /* DragBar.swift */; };
+		A4F3728F27FECA9B00458EBE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F3728E27FECA9B00458EBE /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +119,7 @@
 		6E3011958B893B5EE48E4B60 /* Pods_Gas4Oil__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas4Oil__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A406706227D8BE5E00193D36 /* FavoriteStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStations.swift; sourceTree = "<group>"; };
 		A406706C27D90F8D00193D36 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		A41249EF27FC24A50018BDB4 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		A416FCA327E663C200FCC16A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A416FCA927E6977700FCC16A /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
 		A444763F27D12DB500B25303 /* Gas4OilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4OilApp.swift; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 		A4D40C1627DE98A3003FBE8F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A4D40C1827DE98A3003FBE8F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A4E70BB127F07AF30097CBF2 /* VehicleStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStored.swift; sourceTree = "<group>"; };
+		A4F3728B27FC555900458EBE /* DragBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragBar.swift; sourceTree = "<group>"; };
+		A4F3728E27FECA9B00458EBE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C943B049A046AECA493B95BF /* Pods_Gas4Oil__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas4Oil__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,6 +220,7 @@
 				A444766027D131F600B25303 /* Scenes */,
 				A444763F27D12DB500B25303 /* Gas4OilApp.swift */,
 				A46E057E27FB5D9300697A57 /* AppDelegate.swift */,
+				A4F3728E27FECA9B00458EBE /* Launch Screen.storyboard */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -330,6 +339,8 @@
 				A4727BF427D519740005736F /* Gas4OilButton.swift */,
 				A4727C0227D600BE0005736F /* MapPin.swift */,
 				A416FCA327E663C200FCC16A /* LottieView.swift */,
+				A41249EF27FC24A50018BDB4 /* AdView.swift */,
+				A4F3728B27FC555900458EBE /* DragBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,6 +509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F3728F27FECA9B00458EBE /* Launch Screen.storyboard in Resources */,
 				A444767927D143C500B25303 /* gas_station.json in Resources */,
 				A416FCAA27E6977700FCC16A /* location.json in Resources */,
 				A478913A27D9217D001CA76E /* Localizable.strings in Resources */,
@@ -540,6 +552,7 @@
 				A48F4AB527D4B4B60024473D /* Managers.swift in Sources */,
 				A4A2F8F427F06F8500AC92E8 /* VehicleEngine.swift in Sources */,
 				A4A2F8FA27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */,
+				A41249F027FC24A50018BDB4 /* AdView.swift in Sources */,
 				A487AB8927E8B8530085385E /* VehicleDataStored.swift in Sources */,
 				A444767227D13A8A00B25303 /* LocationManager.swift in Sources */,
 				A48F4ABC27D4DEA10024473D /* StationView.swift in Sources */,
@@ -549,6 +562,7 @@
 				A4A2F8F727F073DA00AC92E8 /* VehicleModels.swift in Sources */,
 				A497C4F827D74C85009E1CC6 /* Double.swift in Sources */,
 				A48581C627DAC54100864885 /* FavoriteListView.swift in Sources */,
+				A4F3728C27FC555900458EBE /* DragBar.swift in Sources */,
 				A4727BF527D519740005736F /* Gas4OilButton.swift in Sources */,
 				A48F4AA927D218E80024473D /* DomainConvertible.swift in Sources */,
 				A4727C0327D600BE0005736F /* MapPin.swift in Sources */,
@@ -592,10 +606,12 @@
 				A487AB8A27E8B8530085385E /* VehicleDataStored.swift in Sources */,
 				A4A2F8FB27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */,
 				A4727BF627D519740005736F /* Gas4OilButton.swift in Sources */,
+				A4F3728D27FC555900458EBE /* DragBar.swift in Sources */,
 				A48F4AAA27D218E80024473D /* DomainConvertible.swift in Sources */,
 				A487AB8427E8A6250085385E /* VehicleView.swift in Sources */,
 				A4727C0427D600BE0005736F /* MapPin.swift in Sources */,
 				A478914127D922F4001CA76E /* String.swift in Sources */,
+				A41249F127FC24A50018BDB4 /* AdView.swift in Sources */,
 				A444767127D13A8700B25303 /* Parser.swift in Sources */,
 				A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */,
 				A4A2F8F827F073DA00AC92E8 /* VehicleModels.swift in Sources */,
@@ -753,6 +769,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to know where you are in order to get nearest fuel stations";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -760,13 +777,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AitorSola.Gas4Oil;
 				PRODUCT_NAME = Gas4Oil;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -785,6 +802,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to know where you are in order to get nearest fuel stations";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -792,13 +810,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AitorSola.Gas4Oil;
 				PRODUCT_NAME = Gas4Oil;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

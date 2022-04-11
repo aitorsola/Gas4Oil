@@ -31,6 +31,9 @@
 "listView.sortType.downDiesel.button" = "Price down diesel";
 "listView.sortType.upDiesel.button" = "Price up diesel";
 
+"listView.ad.title" = "What can you do?";
+"listView.ad.description" = "Discover the service stations that interest you the most. Filter by brand, by type of fuel or by descending, ascending or proximity price.\nYou can also add the service stations you prefer to your favorites list.";
+
 "mainTab.favTabTitle" = "Favorites";
 "mainTab.stationsTabTitle" = "Stations";
 "mainTab.vehicle" = "My vehicle";
@@ -43,3 +46,5 @@
 "myVehicle.save" = "Save";
 "myVehicle.remove" = "Remove";
 "myVehicle.remove.alert.title" = "Are you sure you want to remove this vehicle?";
+"myVehicle.ad.title" = "Add a vehicle";
+"myVehicle.ad.description" = "Did you know that you can add a vehicle so that you can know in advance how much it will cost to fill the tank at each gas station?";

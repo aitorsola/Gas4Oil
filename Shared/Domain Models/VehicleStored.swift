@@ -13,7 +13,7 @@ enum FuelType: Codable, CaseIterable {
   case diesel
 }
 
-struct VehicleStored: Codable {
+struct VehicleStored: Codable, Equatable {
   var brand: String
   var model: String
   var capacity: String
