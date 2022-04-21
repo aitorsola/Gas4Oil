@@ -33,6 +33,9 @@
 		A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444767D27D17A5D00B25303 /* ProgressView.swift */; };
 		A444768427D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
 		A444768527D1887A00B25303 /* StationsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444768327D1887A00B25303 /* StationsEngine.swift */; };
+		A44F419B28102FBF00CE8C81 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = A44F419A28102FBF00CE8C81 /* Shimmer */; };
+		A44F419D28113C6F00CE8C81 /* FakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44F419C28113C6F00CE8C81 /* FakeView.swift */; };
+		A44F419E28113C6F00CE8C81 /* FakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44F419C28113C6F00CE8C81 /* FakeView.swift */; };
 		A45D27A427E8E0F800C724D6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A45D27A327E8E0F800C724D6 /* Lottie */; };
 		A46E057D27FB5D7100697A57 /* Gas4OilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A444763F27D12DB500B25303 /* Gas4OilApp.swift */; };
 		A46E057F27FB5D9300697A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E057E27FB5D9300697A57 /* AppDelegate.swift */; };
@@ -135,6 +138,7 @@
 		A444767D27D17A5D00B25303 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		A444768327D1887A00B25303 /* StationsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsEngine.swift; sourceTree = "<group>"; };
 		A44AF40627DA014B008213B7 /* Gas4Oil--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Gas4Oil--iOS--Info.plist"; sourceTree = "<group>"; };
+		A44F419C28113C6F00CE8C81 /* FakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeView.swift; sourceTree = "<group>"; };
 		A46E057E27FB5D9300697A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A46E058027FB69C400697A57 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		A4727BF427D519740005736F /* Gas4OilButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas4OilButton.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44F419B28102FBF00CE8C81 /* Shimmer in Frameworks */,
 				A45D27A427E8E0F800C724D6 /* Lottie in Frameworks */,
 				A489DF3E27F997890020D769 /* NotificationBannerSwift in Frameworks */,
 			);
@@ -341,6 +346,7 @@
 				A416FCA327E663C200FCC16A /* LottieView.swift */,
 				A41249EF27FC24A50018BDB4 /* AdView.swift */,
 				A4F3728B27FC555900458EBE /* DragBar.swift */,
+				A44F419C28113C6F00CE8C81 /* FakeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 			packageProductDependencies = (
 				A45D27A327E8E0F800C724D6 /* Lottie */,
 				A489DF3D27F997890020D769 /* NotificationBannerSwift */,
+				A44F419A28102FBF00CE8C81 /* Shimmer */,
 			);
 			productName = "Gas4Oil (iOS)";
 			productReference = A444764627D12DB600B25303 /* Gas4Oil.app */;
@@ -493,6 +500,7 @@
 			packageReferences = (
 				A45D27A227E8E0F800C724D6 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				A489DF3C27F997890020D769 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
+				A44F419928102FBF00CE8C81 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = A444764727D12DB600B25303 /* Products */;
 			projectDirPath = "";
@@ -552,6 +560,7 @@
 				A48F4AB527D4B4B60024473D /* Managers.swift in Sources */,
 				A4A2F8F427F06F8500AC92E8 /* VehicleEngine.swift in Sources */,
 				A4A2F8FA27F0755F00AC92E8 /* VehicleBrandEntity.swift in Sources */,
+				A44F419D28113C6F00CE8C81 /* FakeView.swift in Sources */,
 				A41249F027FC24A50018BDB4 /* AdView.swift in Sources */,
 				A487AB8927E8B8530085385E /* VehicleDataStored.swift in Sources */,
 				A444767227D13A8A00B25303 /* LocationManager.swift in Sources */,
@@ -615,6 +624,7 @@
 				A444767127D13A8700B25303 /* Parser.swift in Sources */,
 				A444767F27D17A5D00B25303 /* ProgressView.swift in Sources */,
 				A4A2F8F827F073DA00AC92E8 /* VehicleModels.swift in Sources */,
+				A44F419E28113C6F00CE8C81 /* FakeView.swift in Sources */,
 				A48F4AA727D2133F0024473D /* StationsModels.swift in Sources */,
 				A4A2F8F527F06F8500AC92E8 /* VehicleEngine.swift in Sources */,
 				A444768527D1887A00B25303 /* StationsEngine.swift in Sources */,
@@ -922,6 +932,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A44F419928102FBF00CE8C81 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		A45D27A227E8E0F800C724D6 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -941,6 +959,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A44F419A28102FBF00CE8C81 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A44F419928102FBF00CE8C81 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		A45D27A327E8E0F800C724D6 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A45D27A227E8E0F800C724D6 /* XCRemoteSwiftPackageReference "lottie-ios" */;
