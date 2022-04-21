@@ -1,4 +1,4 @@
-![Gas4Oil_title](https://user-images.githubusercontent.com/14097782/164502555-53517ed0-206a-4dc4-9d7a-1fbbb65e9451.png)
+![Gas4Oil_title](https://user-images.githubusercontent.com/14097782/164502693-14cea4fe-3734-4867-9fc5-cd1577f9213c.png)
 
 
 
