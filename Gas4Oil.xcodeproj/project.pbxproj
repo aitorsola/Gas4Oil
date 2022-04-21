@@ -787,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AitorSola.Gas4Oil;
 				PRODUCT_NAME = Gas4Oil;
 				SDKROOT = iphoneos;
@@ -820,7 +820,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AitorSola.Gas4Oil;
 				PRODUCT_NAME = Gas4Oil;
 				SDKROOT = iphoneos;
