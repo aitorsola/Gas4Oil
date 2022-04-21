@@ -8,6 +8,4 @@ Also you can get fuel stations by province or municipality and make favorite the
 
 Save your car brand and model for obtaining the exact price for fillin the tank up
 
-![Simulator Screen Shot - iPhone 13 Pro - 2022-04-21 at 17 53 59](https://user-images.githubusercontent.com/14097782/164501427-5cbd729a-4c93-448f-ae59-846d191a7a0f.png)
-
-![Simulator Screen Shot - iPhone 13 Pro - 2022-04-21 at 17 55 22](https://user-images.githubusercontent.com/14097782/164501617-f5de43fb-bb19-4815-82c0-b27c87277387.png)
+![Group](https://user-images.githubusercontent.com/14097782/164501962-bc7f0816-1d40-45dd-9d7e-d3f2924a836d.png)
