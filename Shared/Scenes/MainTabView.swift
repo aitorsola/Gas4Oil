@@ -41,19 +41,19 @@ struct MainTabView: View {
             }
           }
 
-        VehicleView()
-          .tag(TabSelectedType.vehicle.rawValue)
-          .tabItem {
-            VStack {
-              Image(systemName: "car.fill")
-#if os(macOS)
-              Text("mainTab.vehicle".translated)
-#endif
-            }
-          }
-#if os(macOS)
-          .frame(width: 500)
-#endif
+//        VehicleView()
+//          .tag(TabSelectedType.vehicle.rawValue)
+//          .tabItem {
+//            VStack {
+//              Image(systemName: "car.fill")
+//#if os(macOS)
+//              Text("mainTab.vehicle".translated)
+//#endif
+//            }
+//          }
+//#if os(macOS)
+//          .frame(width: 500)
+//#endif
 
         FavoriteListView(viewModel: viewModel.favoriteViewViewModel)
           .tag(TabSelectedType.favorite.rawValue)
