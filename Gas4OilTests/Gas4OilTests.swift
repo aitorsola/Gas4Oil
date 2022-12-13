@@ -18,8 +18,8 @@ final class Gas4OilTests: XCTestCase {
     }
 
     func testExample() throws {
-        let istrue = true
-        XCTAssertEqual(istrue, true)
+        let isTrue = true
+        XCTAssertEqual(isTrue, true)
     }
 
     func testPerformanceExample() throws {
