@@ -30,12 +30,16 @@ extension Network: VehicleAPI {
         perform(request) { result in
             switch result {
             case .success(let data):
-                print(data)
-                guard let entity = Parser.parse(data, entity: [VehicleBrand].self) else {
+                let decoder = JSONDecoder()
+                do {
+                    let entity = try decoder.decode([VehicleBrand].self, from: data)
+                    let finalData: [VehicleBrandEntity] = entity.compactMap { brand in
+                        brand.domainEntity()
+                    }
+                    completion(.success(finalData))
+                } catch {
                     completion(.failure(.parseProblems))
-                    return
                 }
-                completion(.success(entity))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -48,12 +52,16 @@ extension Network: VehicleAPI {
         perform(request) { result in
             switch result {
             case .success(let data):
-                print(data)
-                guard let entity = Parser.parse(data, entity: [VehicleModel].self) else {
+                let decoder = JSONDecoder()
+                do {
+                    let entity = try decoder.decode([VehicleModel].self, from: data)
+                    let finalData: [VehicleModelEntity] = entity.compactMap { brand in
+                        brand.domainEntity()
+                    }
+                    completion(.success(finalData))
+                } catch {
                     completion(.failure(.parseProblems))
-                    return
                 }
-                completion(.success(entity))
             case .failure(let error):
                 completion(.failure(error))
             }

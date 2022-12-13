@@ -37,8 +37,8 @@ class Network {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         
-        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, response, error in
-            guard let data = data, error == nil else {
+        URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, _, error in
+            guard let data, error == nil else {
                 completion(.failure(.networkProblem))
                 return
             }

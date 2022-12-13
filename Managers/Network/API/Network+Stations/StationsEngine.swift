@@ -22,10 +22,17 @@ extension Network: ServiceStationsAPI {
         perform(request) { result in
             switch result {
             case .success(let data):
-                guard let entity = Parser.parse(data, entity: StationsResponse.self) else {
-                    return
+                do {
+                    let decoder = JSONDecoder()
+                    let entity = try decoder.decode(StationsResponse.self, from: data)
+                    guard let stations = entity.domainEntity()?.stations else {
+                        completion(.failure(.parseProblems))
+                        return
+                    }
+                    completion(.success(stations))
+                } catch {
+                    completion(.failure(.parseProblems))
                 }
-                completion(.success(entity.stations))
             case .failure(let error):
                 completion(.failure(error))
             }

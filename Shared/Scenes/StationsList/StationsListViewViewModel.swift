@@ -193,7 +193,7 @@ extension StationsListViewViewModel {
             let newStations = Array(self.allStations
                 .filter { $0.rotulo.contains(brand.uppercased()) }
                 .filter { station in
-                    guard let currentCity = currentCity else {
+                    guard let currentCity else {
                         return true
                     }
                     return station.municipio == currentCity.lowercased() || station.provincia == currentCity.lowercased()
@@ -273,7 +273,7 @@ extension StationsListViewViewModel {
         self.currentSortType = by
         let newStations = Array(self.allStations
             .filter { station in
-                guard let currentCity = currentCity else {
+                guard let currentCity else {
                     return true
                 }
                 return station.municipio == currentCity.lowercased() || station.provincia == currentCity.lowercased()
