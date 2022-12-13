@@ -6,6 +6,6 @@
 //
 
 protocol DomainConvertible {
-  associatedtype DomainEntityType
-  func domainEntity() -> DomainEntityType?
+    associatedtype DomainEntityType
+    func domainEntity() -> DomainEntityType?
 }

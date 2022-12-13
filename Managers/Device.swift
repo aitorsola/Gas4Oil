@@ -8,12 +8,12 @@
 import Foundation
 
 struct Device {
-
-  static var isiOS: Bool {
+    
+    static var isiOS: Bool {
 #if os(iOS)
-    return  true
+        return  true
 #else
-    return false
+        return false
 #endif
-  }
+    }
 }

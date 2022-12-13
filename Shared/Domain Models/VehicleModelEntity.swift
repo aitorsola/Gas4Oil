@@ -8,7 +8,7 @@
 import Foundation
 
 struct VehicleModelEntity {
-  let id: Int
-  let model: String
-  let brand: VehicleBrandEntity?
+    let id: Int
+    let model: String
+    let brand: VehicleBrandEntity?
 }

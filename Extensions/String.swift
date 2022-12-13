@@ -8,14 +8,14 @@
 import Foundation
 
 extension String {
-
-  var translated: String {
-    let format = NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.main, comment: "")
-    return String(format: format)
-  }
-
-  func translated(_ args: CVarArg...) -> String {
-    let format = NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.main, comment: "")
-    return String(format: format, arguments: args)
-  }
+    
+    var translated: String {
+        let format = NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.main, comment: "")
+        return String(format: format)
+    }
+    
+    func translated(_ args: CVarArg...) -> String {
+        let format = NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.main, comment: "")
+        return String(format: format, arguments: args)
+    }
 }

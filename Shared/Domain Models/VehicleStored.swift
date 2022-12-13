@@ -8,25 +8,25 @@
 import Foundation
 
 enum FuelType: Codable, CaseIterable {
-  case gas95
-  case gas98
-  case diesel
+    case gas95
+    case gas98
+    case diesel
 }
 
 struct VehicleStored: Codable, Equatable {
-  var brand: String
-  var model: String
-  var capacity: String
-  var fuel: FuelType
-
-  func isEmpty() -> Bool {
-    brand.isEmpty || model.isEmpty || capacity.isEmpty
-  }
-
-  mutating func reset() {
-    brand = ""
-    model = ""
-    capacity = ""
-    fuel = .gas95
-  }
+    var brand: String
+    var model: String
+    var capacity: String
+    var fuel: FuelType
+    
+    func isEmpty() -> Bool {
+        brand.isEmpty || model.isEmpty || capacity.isEmpty
+    }
+    
+    mutating func reset() {
+        brand = ""
+        model = ""
+        capacity = ""
+        fuel = .gas95
+    }
 }

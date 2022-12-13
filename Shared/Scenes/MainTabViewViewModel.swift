@@ -8,7 +8,7 @@
 import Foundation
 
 class MainTabViewViewModel: ObservableObject {
-
-  @Published var listViewViewModel: StationsListViewViewModel = StationsListViewViewModel()
-  @Published var favoriteViewViewModel: FavoriteListViewViewModel = FavoriteListViewViewModel()
+    
+    @Published var listViewViewModel: StationsListViewViewModel = StationsListViewViewModel()
+    @Published var favoriteViewViewModel: FavoriteListViewViewModel = FavoriteListViewViewModel()
 }

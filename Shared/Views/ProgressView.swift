@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ProgressView: View {
-
-  // MARK: - Properties
-  let title: String
-
-  var body: some View {
-    VStack(spacing: 20) {
-      SwiftUI.ProgressView()
-      Text(title).font(.customSize(20))
+    
+    // MARK: - Properties
+    let title: String
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            SwiftUI.ProgressView()
+            Text(title).font(.customSize(20))
+        }
     }
-  }
 }
 
 struct ProgressView_Previews: PreviewProvider {
-  static var previews: some View {
-    ProgressView(title: "common.loading".translated)
-      .preferredColorScheme(.dark)
-  }
+    static var previews: some View {
+        ProgressView(title: "common.loading".translated)
+            .preferredColorScheme(.dark)
+    }
 }

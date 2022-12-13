@@ -9,25 +9,25 @@ import SwiftUI
 
 @main
 struct Gas4OilApp: App {
-
-  #if os(iOS)
-  @UIApplicationDelegateAdaptor private var delegate: AppDelegate
-  #endif
-
-  var body: some Scene {
-    WindowGroup {
-      if Device.isiOS {
-        MainTabView()
+    
 #if os(iOS)
-          .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
-            Managers.backgroundTask.scheduleTask(.refreshStationList,
-                                                 earliestBeginDate: Date(timeIntervalSinceNow: 15*60))
-          }
+    @UIApplicationDelegateAdaptor private var delegate: AppDelegate
 #endif
-      } else {
-        MainTabView()
-          .frame(minWidth: 500, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity, alignment: .center)
-      }
+    
+    var body: some Scene {
+        WindowGroup {
+            if Device.isiOS {
+                MainTabView()
+#if os(iOS)
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
+                        Managers.backgroundTask.scheduleTask(.refreshStationList,
+                                                             earliestBeginDate: Date(timeIntervalSinceNow: 15*60))
+                    }
+#endif
+            } else {
+                MainTabView()
+                    .frame(minWidth: 500, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity, alignment: .center)
+            }
+        }
     }
-  }
 }

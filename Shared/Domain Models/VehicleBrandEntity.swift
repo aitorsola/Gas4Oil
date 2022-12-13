@@ -8,6 +8,6 @@
 import Foundation
 
 struct VehicleBrandEntity: Hashable, Identifiable {
-  let id: Int
-  var brand: String
+    let id: Int
+    var brand: String
 }

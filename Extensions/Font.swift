@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension Font {
-
-  public static func customSize(_ size: CGFloat, weight: Weight = .medium, design: Design = .default) -> Font {
-    Font.system(size: size, weight: weight, design: design)
-  }
+    
+    public static func customSize(_ size: CGFloat, weight: Weight = .medium, design: Design = .default) -> Font {
+        Font.system(size: size, weight: weight, design: design)
+    }
 }
